@@ -1,0 +1,21 @@
+body {
+    background-color: #FDF6E3;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: Georgia, Tahoma, sans-serif, "Microsoft YaHei", "微软雅黑";
+    font-size: 16px;
+    color: #545454;
+
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #1E90FF;
+}
