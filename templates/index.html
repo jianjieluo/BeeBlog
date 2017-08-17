@@ -16,17 +16,18 @@
         <img src="../static/img/blogbanner.png" class="center-block"></img>
     </div>
 
+    {% include 'navigate.html' %}
+
     <div class="container">
         <div id="left-view" class="container pull-left col-md-8">
             <h1>The Latest 5 Posts</h1>
-            <ui id="article-list">
-                <li class="article">aa</li>
-                <li class="article">bb</li>
-                <li class="article">cc</li>
-                <li class="article">dd</li>
-                <li class="article">ee</li>
-            </ui>
+            <ul id="article-list">
+                {% for post in article_list %}
+                    <li><a class="article" href="{{ post }}">{{ post }}</a></li>
+                {% endfor %}
+            </ul>
         </div>
+
         <div id="right-view" class="container pull-right col-md-4">
             <div class="row">
                 <img id="author-picture" class="center-block img-circle" src="../static/img/longj_photo.png"></img>
@@ -41,28 +42,7 @@
         </div>
     </div>
 
-    <!--<div id="content">
-                {% if content %} {{ content }} {% else %}
-                <h1>Posts so far</h1>
-                <ul>
-                    {% for post in site %} {% if post != "index.html" %}
-                    <li><a href="{{ post }}">{{ post }}</a></li>
-                    {% endif %} {% endfor %}
-                </ul>
-                {% endif %}
-            </div>-->
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <p class="copyright text-muted">Copyright &copy; Johnny Law 2017 - <a href="mailto:luojj26@gmail.com">Contact the Author</a></p>
-                    <a href="https://icons8.com/icon/50492/Bee">Bee icon credits</a>
-                </div>               
-            </div>
-        </div>
-    </footer>
+    {% include 'footer.html' %}
 </body>
 
 </html>
