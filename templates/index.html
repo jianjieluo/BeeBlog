@@ -1,22 +1,68 @@
-<html>
-    <head>
-        <title>My First Static Site Generator</title>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
 
-    <body>
-    <div id="content" style="width:500px; margin: 0 auto">
-        {% if content %}
-            {{ content }}
-        {% else %}
-            <h1>Posts so far</h1>
-            <ul>
-                {% for post in site %}
-                    {% if post != "index.html" %}
-                    <li><a href="{{ post }}">{{ post }}</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        {% endif %}
+<head>
+    <title>{{ data.sitetitle }}</title>
+    <link href="../static/css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="../static/css/base.css" type="text/css" rel="stylesheet" />
+    <link href="../static/css/index.css" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" href="../static/img/favicon.png">
+</head>
+
+
+<body>
+
+    <div id="banner">
+        <img src="../static/img/blogbanner.png" class="center-block"></img>
     </div>
-    </body>
+
+    <div class="container">
+        <div id="left-view" class="container pull-left col-md-8">
+            <h1>The Latest 5 Posts</h1>
+            <ui id="article-list">
+                <li class="article">aa</li>
+                <li class="article">bb</li>
+                <li class="article">cc</li>
+                <li class="article">dd</li>
+                <li class="article">ee</li>
+            </ui>
+        </div>
+        <div id="right-view" class="container pull-right col-md-4">
+            <div class="row">
+                <img id="author-picture" class="center-block img-circle" src="../static/img/longj_photo.png"></img>
+                <p>Johnny Law</p>
+            </div>
+            <div class="row">
+                <p id="PS" class="center-block">Personal Statement: {{ data.PS }}</p>
+            </div>
+            <div id="tags" class="row">
+                {{ data.taglist }}
+            </div>
+        </div>
+    </div>
+
+    <!--<div id="content">
+                {% if content %} {{ content }} {% else %}
+                <h1>Posts so far</h1>
+                <ul>
+                    {% for post in site %} {% if post != "index.html" %}
+                    <li><a href="{{ post }}">{{ post }}</a></li>
+                    {% endif %} {% endfor %}
+                </ul>
+                {% endif %}
+            </div>-->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p class="copyright text-muted">Copyright &copy; Johnny Law 2017 - <a href="mailto:luojj26@gmail.com">Contact the Author</a></p>
+                    <a href="https://icons8.com/icon/50492/Bee">Bee icon credits</a>
+                </div>               
+            </div>
+        </div>
+    </footer>
+</body>
+
 </html>

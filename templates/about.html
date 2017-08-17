@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>About {{ author.name }}</title>
-      <link href="../static/css/base.css" type="text/css" rel="stylesheet" />
-    <link href="../static/css/about.css" type="text/css" rel="stylesheet" />
-    <!--<link rel="shortcut icon" href="https://png.icons8.com/bee/ultraviolet/20">-->
-    <link rel="shortcut icon" href="../static/img/favicon.png">
-  </head>
 
-  <body>
-    <!--<img id="picture" src="{{ author.picture_url }}"></img>-->
-    <img id="picture" src="../static/img/longj_photo.png"></img>
-    
-    <div id="about">
-      <h1>About The Author</h1>
-      <p>{{ author.introdution }}</p>
-    </div>
-    <div id="contact">
-      <h1>Contact</h1>
-      <p>
-        Github: {{ author.github }}
-        email: {{ author.email }}
-      </p>
-    </div>
-  </body>
+<head>
+  <title>About {{ author.name }}</title>
+  <link href="../static/css/base.css" type="text/css" rel="stylesheet" />
+  <link href="../static/css/about.css" type="text/css" rel="stylesheet" />
+  <!--<link rel="shortcut icon" href="https://png.icons8.com/bee/ultraviolet/20">-->
+  <link rel="shortcut icon" href="../static/img/favicon.png">
+</head>
+
+<body>
+  <!--<img id="picture" src="{{ author.picture_url }}"></img>-->
+  <img id="picture" src="../static/img/longj_photo.png"></img>
+
+  <div id="about" class="container">
+    <h1>About The Author</h1>
+    <p>{{ author.introdution }}</p>
+  </div>
+  <div id="contact" class="container">
+    <h1>Contact</h1>
+    <p>
+      Github: {{ author.github }} email: {{ author.email }}
+    </p>
+  </div>
 
   <footer>
     <!--<a href="https://icons8.com">Icon pack by Icons8</a>-->
     <a href="https://icons8.com/icon/50492/Bee">Bee icon credits</a>
   </footer>
+</body>
+
 </html>
