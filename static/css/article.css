@@ -5,6 +5,7 @@ h1 {
 }
 
 #content {
-    width: 75%;
-    margin:auto;
+    width: 700px;
+    margin: auto;
+    padding-bottom: 40px;
 }

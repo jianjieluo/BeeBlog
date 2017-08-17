@@ -19,11 +19,20 @@
     <div class="container">
         <div id="left-view" class="container pull-left col-md-8">
             <h1>The Latest 5 Posts</h1>
-            <ul id="article-list">
-                {% for post in article_list %}
-                    <li><a class="article" href="{{ post }}">{{ post }}</a></li>
+
+            <div class="article-list">
+                {% for article in article_list %}
+                <a href="{{ article }}">
+                    <h3 class="article-title">
+                        {{ article_list[article].title }}
+                    </h3>
+                    <h4 class="article-subtitle">
+                        {{ article_list[article].description }}
+                    </h4>
+                </a>
+                <p class="article-meta">Written by <a href="https://github.com/longjj">longj</a> at {{ article_list[article].postdate }}</p>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
 
         <div id="right-view" class="container pull-right col-md-4">
@@ -40,6 +49,11 @@
         </div>
     </div>
 
+    <a href="https://github.com/longjj/blog">
+    <img style="position: absolute; top: 0; right: 0; border: 0;"
+        src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" />
+    </a>
+    
     {% include 'footer.html' %}
 </body>
 

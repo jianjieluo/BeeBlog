@@ -52,7 +52,12 @@ if __name__ == '__main__':
     renderer = HighlightRenderer()
     markdown = mistune.Markdown(renderer=renderer)
     for post in ARTICLES:
-        ARTICLES[post] = markdown(ARTICLES[post])
+        ARTICLES[post] = {
+            'title': os.path.splitext(post)[0],
+            'postdate': "2017-06-29",
+            'updatedate': "2017-07-02",
+            'content': markdown(ARTICLES[post])
+        }
 
     # STEP 3 - template
     env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
@@ -62,8 +67,8 @@ if __name__ == '__main__':
         template = env.get_template("article.html")
         ARTICLES[post] = template.render(
             article={
-                'title': os.path.splitext(post)[0],
-                'content': ARTICLES[post]
+                'title': ARTICLES[post]['title'],
+                'content': ARTICLES[post]['content']
             },
         )
     
