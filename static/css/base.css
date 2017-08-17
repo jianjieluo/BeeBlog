@@ -5,7 +5,7 @@ body {
     padding: 0;
 
     font-family: Georgia, Tahoma, sans-serif, "Microsoft YaHei", "微软雅黑";
-    font-size: 16px;
+    font-size: 18px;
     color: #545454;
 
     line-height: 1.428571429;
@@ -17,7 +17,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #1E90FF;
+    color: #3C82C5;
 }
 
 /*Default a css*/
@@ -38,4 +38,9 @@ a:focus {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.footer {
+  text-align: center;
+  font-size: 12px;
 }

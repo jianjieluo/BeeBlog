@@ -1,5 +1,5 @@
 jinja2
 PyYaml
 mistune
-markdown
+markdown2
 pygments

@@ -9,12 +9,29 @@ from io import open
 import shutil
 import yaml
 
-from markdown2 import markdown
+# from markdown import Markdown
+# from markdown2 import markdown
 from jinja2 import FileSystemLoader, Environment
+
+import mistune
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name
+from pygments.formatters import html
 
 ARTICLES_DIR = "./articles"
 TEMPLATE_DIR = "./templates"
 SITE_DIR = "site"
+
+
+# use the script from the docs of mistune http://mistune.readthedocs.io/en/latest/
+class HighlightRenderer(mistune.Renderer):
+    def block_code(self, code, lang):
+        if not lang:
+            return '\n<pre><code>%s</code></pre>\n' % \
+                mistune.escape(code)
+        lexer = get_lexer_by_name(lang, stripall=True)
+        formatter = html.HtmlFormatter()
+        return highlight(code, lexer, formatter)
 
 if __name__ == '__main__':
     ARTICLES = {}
@@ -32,6 +49,8 @@ if __name__ == '__main__':
             ARTICLES[curr_name] = infile.read()
 
     # STEP 2 - markup
+    renderer = HighlightRenderer()
+    markdown = mistune.Markdown(renderer=renderer)
     for post in ARTICLES:
         ARTICLES[post] = markdown(ARTICLES[post])
 
