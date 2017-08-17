@@ -40,7 +40,8 @@ a:focus {
   margin-left: auto;
 }
 
-.footer {
+footer {
+  margin-top: 40px;
   text-align: center;
   font-size: 12px;
   padding-bottom: 40px;
