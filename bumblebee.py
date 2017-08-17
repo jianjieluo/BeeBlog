@@ -9,8 +9,6 @@ from io import open
 import shutil
 import yaml
 
-# from markdown import Markdown
-# from markdown2 import markdown
 from jinja2 import FileSystemLoader, Environment
 
 import mistune
@@ -35,7 +33,7 @@ class HighlightRenderer(mistune.Renderer):
 
 if __name__ == '__main__':
     ARTICLES = {}
-    STATICPAGES = {}
+    SITES = {}
 
     # STEP 1 - read files
     for current in os.listdir(ARTICLES_DIR):
@@ -54,36 +52,37 @@ if __name__ == '__main__':
     for post in ARTICLES:
         ARTICLES[post] = {
             'title': os.path.splitext(post)[0],
-            'postdate': "2017-06-29",
-            'updatedate': "2017-07-02",
+            'postdate': '2017-06-29',
+            'updatedate': '2017-07-02',
             'content': markdown(ARTICLES[post])
         }
 
     # STEP 3 - template
     env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
 
+    # generate the index page
+    template = env.get_template("index.html")
+    SITES['index.html'] = template.render(
+        data={
+            'sitetitle': 'Johnny Law\'s Blog Home',
+            'PS': 'Study at Sun Yat-sen University, China'
+        },
+        article_list=ARTICLES
+    )
+
     # generate the article page
     for post in ARTICLES:
         template = env.get_template("article.html")
-        ARTICLES[post] = template.render(
+        SITES[post] = template.render(
             article={
                 'title': ARTICLES[post]['title'],
                 'content': ARTICLES[post]['content']
             },
         )
-    
-    # generate other pages
-    template = env.get_template("index.html")
-    STATICPAGES['index.html'] = template.render(
-        data = {
-            'sitetitle': 'Johnny Law\'s Blog Home',
-            'PS': 'Study at Sun Yat-sen University, China'
-        },
-        article_list = ARTICLES
-    )
 
+    # generate about.html
     template = env.get_template('about.html')
-    STATICPAGES['about.html'] = template.render(
+    SITES['about.html'] = template.render(
         author = {
             'name': 'Johnny Law',
             'photo': '../static/img/longj_photo.png',
@@ -100,17 +99,11 @@ if __name__ == '__main__':
 
     # create empty output directory
     os.makedirs(SITE_DIR)
-
-    for post in ARTICLES:
-        fqp = os.path.join(SITE_DIR, post)
-
-        with open(fqp, "w", encoding="utf-8") as output:
-            output.write(ARTICLES[post])
             
-    for post in STATICPAGES:
+    for post in SITES:
         fqp = os.path.join(SITE_DIR, post)
 
         with open(fqp, "w", encoding="utf-8") as output:
-            output.write(STATICPAGES[post])
+            output.write(SITES[post])
 
     print "Done!"
