@@ -22,15 +22,17 @@
 
             <div class="article-list">
                 {% for article in article_list %}
-                <a href="{{ article }}">
-                    <h3 class="article-title">
-                        {{ article_list[article]['title'] }}
-                    </h3>
-                    <h4 class="article-subtitle">
-                        {{ article_list[article]['description'] }}
-                    </h4>
-                </a>
-                <p class="article-meta">Written by <a href="https://github.com/longjj">longj</a> at {{ article_list[article]['postdate'] }}</p>
+                <div class='row text-capitalize'>
+                    <a href="{{ article }}">
+                        <h3 class="article-title">
+                            {{ article_list[article]['title'] }}
+                        </h3>
+                        <h4 class="article-subtitle small text-muted">
+                            {{ article_list[article]['description'] }}
+                        </h4>
+                    </a>
+                    <p class="article-meta">Post on {{ article_list[article]['postdate'] }}</p>
+                </div>
                 {% endfor %}
             </div>
         </div>
