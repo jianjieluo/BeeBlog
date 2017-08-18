@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#！usr/bin/python3
 
 """
 bumblebee.py - A sample static website generater writen in python for Johnny Law's blog
@@ -8,6 +8,8 @@ import os
 from io import open
 import shutil
 import yaml
+import argparse
+import sys
 
 from jinja2 import FileSystemLoader, Environment
 
@@ -31,31 +33,66 @@ class HighlightRenderer(mistune.Renderer):
         formatter = html.HtmlFormatter()
         return highlight(code, lexer, formatter)
 
+def parse_file_name(name):
+    name = name.replace(' ', '-')
+    name = name.replace('_', '-')
+
+    url_friendly_name = ''
+    title = ''
+    date = ''
+    file_name = os.path.splitext(name)[0]
+    if (name.lower().endswith(('.md', '.markdown'))):
+        url_friendly_name =  file_name + '.html'
+        title = file_name[11:].replace('-', ' ')
+        date = file_name[0:10]
+
+    return url_friendly_name, title, date
+
+def load_posts_config(config):
+    metadata = {}
+    for c in os.listdir(config['articles']['config']):
+        cpath = os.path.join(config['articles']['config'], c)
+        cfh = open(cpath, 'r')
+        meta = yaml.safe_load(cfh)
+        cfh.close()
+        metadata[meta['post_id']] = meta
+    return metadata
+
 if __name__ == '__main__':
-    ARTICLES = {}
+    # # Grab commandline arguments and process them
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument("-c", "--config",
+    #                     help="Specify a configuration file",
+    #                     required=True)
+    # args = parser.parse_args()
+
+    # Open specified config file and load as yaml or error
+    try:
+        cfh = open('./config.yml', "r")
+    except:
+        sys.stderr.write("Could not open file: {0}\n".format('./config.yml'))
+        sys.exit(1)
+    config = yaml.safe_load(cfh)
+    cfh.close()
+
     SITES = {}
+    
+    article_infos = load_posts_config(config)
+    article_content = {}
 
-    # STEP 1 - read files
-    for current in os.listdir(ARTICLES_DIR):
-        fqp = os.path.join(ARTICLES_DIR, current)
-        
-        curr_name = ''
-        if (current.lower().endswith(('.md', '.markdown'))):
-            curr_name = os.path.splitext(current)[0] + '.html'
-
-        with open(fqp, 'r', encoding='utf-8') as infile:
-            ARTICLES[curr_name] = infile.read()
-
-    # STEP 2 - markup
+    # STEP 1 and 2 - read files and markup
     renderer = HighlightRenderer()
     markdown = mistune.Markdown(renderer=renderer)
-    for post in ARTICLES:
-        ARTICLES[post] = {
-            'title': os.path.splitext(post)[0],
-            'postdate': '2017-06-29',
-            'updatedate': '2017-07-02',
-            'content': markdown(ARTICLES[post])
-        }
+
+    for post_id in article_infos:
+        file_name = article_infos[post_id]['file']
+        fqp = os.path.join(config['articles']['posts'], file_name)
+
+        article_infos[post_id]['url_friendly_name'], article_infos[post_id]['title'], \
+        article_infos[post_id]['date'] = parse_file_name(file_name)
+
+        with open(fqp, 'r', encoding='utf-8') as infile:
+            article_content[post_id] = markdown(infile.read())
 
     # STEP 3 - template
     env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
@@ -67,16 +104,18 @@ if __name__ == '__main__':
             'sitetitle': 'Johnny Law\'s Blog Home',
             'PS': 'Study at Sun Yat-sen University, China'
         },
-        article_list=ARTICLES
+        article_infos=article_infos,
+        output_dir=config['output_dir']
     )
 
     # generate the article page
-    for post in ARTICLES:
-        template = env.get_template("article.html")
-        SITES[post] = template.render(
+    for post_id in article_content:
+        t = env.get_template("article.html")
+        SITES[article_infos[post_id]['url_friendly_name']] = t.render(
             article={
-                'title': ARTICLES[post]['title'],
-                'content': ARTICLES[post]['content']
+                'title': article_infos[post_id]['title'],
+                'date': article_infos[post_id]['date'],
+                'content': article_content[post_id]
             },
         )
 
@@ -94,16 +133,16 @@ if __name__ == '__main__':
 
     # STEP 4 - write
     # remove output directory if it exists
-    if os.path.exists(SITE_DIR):
-        shutil.rmtree(SITE_DIR)
+    if os.path.exists(config['output_dir']):
+        shutil.rmtree(config['output_dir'])
 
     # create empty output directory
-    os.makedirs(SITE_DIR)
+    os.makedirs(config['output_dir'])
             
     for post in SITES:
-        fqp = os.path.join(SITE_DIR, post)
+        fqp = os.path.join(config['output_dir'], post)
 
         with open(fqp, "w", encoding="utf-8") as output:
             output.write(SITES[post])
 
-    print "Done!"
+    print ("Done!")

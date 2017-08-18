@@ -1,0 +1,4 @@
+articles:
+  config: ./articles/config
+  posts: ./articles/posts
+output_dir: /home/longj/Desktop/blog/site

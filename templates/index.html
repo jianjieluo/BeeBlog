@@ -21,17 +21,17 @@
             <h1>The Latest 5 Posts</h1>
 
             <div class="article-list">
-                {% for article in article_list %}
+                {% for post_id in article_infos %}
                 <div class='row text-capitalize'>
-                    <a href="{{ article }}">
+                    <a href="{{ output_dir + '/' + article_infos[post_id]['url_friendly_name'] }}">
                         <h3 class="article-title">
-                            {{ article_list[article]['title'] }}
+                            {{ article_infos[post_id]['title'] }}
                         </h3>
                         <h4 class="article-subtitle small text-muted">
-                            {{ article_list[article]['description'] }}
+                            {{ article_infos[post_id]['description'] }}
                         </h4>
                     </a>
-                    <p class="article-meta">Post on {{ article_list[article]['postdate'] }}</p>
+                    <p class="article-meta">Post on {{ article_infos[post_id]['date'] }}</p>
                 </div>
                 {% endfor %}
             </div>
