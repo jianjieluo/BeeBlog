@@ -84,9 +84,14 @@ if __name__ == '__main__':
     renderer = HighlightRenderer()
     markdown = mistune.Markdown(renderer=renderer)
 
+    # use these to reverse in the index template
+    post_ids = []
+
     for post_id in article_infos:
         file_name = article_infos[post_id]['file']
         fqp = os.path.join(config['articles']['posts'], file_name)
+
+        post_ids.append(post_id)
 
         article_infos[post_id]['url_friendly_name'], article_infos[post_id]['title'], \
         article_infos[post_id]['date'] = parse_file_name(file_name)
@@ -99,12 +104,14 @@ if __name__ == '__main__':
 
     # generate the index page
     template = env.get_template("index.html")
+    post_ids.sort()
     SITES['index.html'] = template.render(
         data={
             'sitetitle': 'Johnny Law\'s Blog Home',
             'PS': 'Study at Sun Yat-sen University, China'
         },
         article_infos=article_infos,
+        post_ids=post_ids,
         output_dir=config['output_dir']
     )
 

@@ -21,7 +21,7 @@
             <h1>The Latest 5 Posts</h1>
 
             <div class="article-list">
-                {% for post_id in article_infos %}
+                {% for post_id in post_ids|reverse %}
                 <div class='row text-capitalize'>
                     <a href="{{ output_dir + '/' + article_infos[post_id]['url_friendly_name'] }}">
                         <h3 class="article-title">
