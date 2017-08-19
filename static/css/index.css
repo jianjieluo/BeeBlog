@@ -4,10 +4,6 @@
     height: 150px;
 }
 
-h1 {
-    text-align: center;
-}
-
 #right-view {
     background-color: #EEE8D5;
     text-align: center;
@@ -30,8 +26,8 @@ h1 {
 
 #tags > li {
     text-align: left;
-    font-size: 12px;
-    color: blue;
+    font-size: 14px;
+    margin-left: 12px;
 }
 
 .article-meta{

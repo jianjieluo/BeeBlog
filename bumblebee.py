@@ -146,6 +146,17 @@ if __name__ == '__main__':
         }
     )
 
+    # generate archive.html
+    template = env.get_template('archive.html')
+    SITES['archive.html'] = template.render(
+        data={
+            'sitetitle': 'Johnny Law\'s Blog Archive',
+        },
+        article_infos=article_infos,
+        post_ids=post_ids,
+        output_dir=config['output_dir']
+    )
+
     # STEP 4 - write
     # remove output directory if it exists
     if os.path.exists(config['output_dir']):

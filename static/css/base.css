@@ -11,6 +11,10 @@ body {
     line-height: 1.428571429;
 }
 
+h1 {
+  text-align: center;
+}
+
 h1,
 h2,
 h3,

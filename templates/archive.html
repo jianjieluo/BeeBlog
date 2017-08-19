@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ data.sitetitle }}</title>
+    <link href="../static/css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="../static/css/base.css" type="text/css" rel="stylesheet" />
+    <link href="../static/css/archive.css" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" href="../static/img/favicon.png">
+</head>
+
+
+<body>
+
+    <div id="banner">
+        <img src="../static/img/blogbanner.png" class="center-block"></img>
+    </div>
+
+    <div class="body container">
+        <h1>Archive</h1>
+        {% for post_id in post_ids|reverse %}
+            <div class='row text-capitalize'>
+                <a href="{{ output_dir + '/' + article_infos[post_id]['url_friendly_name'] }}">
+                    <h3 class="article-title">
+                        {{ article_infos[post_id]['title'] }}
+                    </h3>
+                    <h4 class="article-subtitle small text-muted">
+                        {{ article_infos[post_id]['description'] }}
+                    </h4>
+                </a>
+                <p class="article-meta">{{ article_infos[post_id]['date'] }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <a href="https://github.com/longjj/blog">
+        <img style="position: fixed; top: 0; right: 0; border: 0;"
+            src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" />
+    </a>
+    
+    {% include 'footer.html' %}
+</body>
+
+</html>
