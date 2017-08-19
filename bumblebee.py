@@ -79,6 +79,7 @@ if __name__ == '__main__':
     
     article_infos = load_posts_config(config)
     article_content = {}
+    tags = {}
 
     # STEP 1 and 2 - read files and markup
     renderer = HighlightRenderer()
@@ -92,6 +93,12 @@ if __name__ == '__main__':
         fqp = os.path.join(config['articles']['posts'], file_name)
 
         post_ids.append(post_id)
+
+        for tag in article_infos[post_id]['tags']:
+            if tag not in tags:
+                tags[tag] = 1
+            else:
+                tags[tag] = tags[tag] + 1
 
         article_infos[post_id]['url_friendly_name'], article_infos[post_id]['title'], \
         article_infos[post_id]['date'] = parse_file_name(file_name)
@@ -108,7 +115,8 @@ if __name__ == '__main__':
     SITES['index.html'] = template.render(
         data={
             'sitetitle': 'Johnny Law\'s Blog Home',
-            'PS': 'Study at Sun Yat-sen University, China'
+            'PS': 'Study at Sun Yat-sen University, China',
+            'tags': tags
         },
         article_infos=article_infos,
         post_ids=post_ids,

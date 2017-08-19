@@ -16,23 +16,27 @@
         <img src="../static/img/blogbanner.png" class="center-block"></img>
     </div>
 
-    <div class="container body">
+    <div class="body">
         <div id="left-view" class="container pull-left col-md-9">
             <h1>The Latest 5 Posts</h1>
 
-            <div class="article-list">
+            <div class="article-list container col-md-12">
+                {% set num = 5 %}
                 {% for post_id in post_ids|reverse %}
-                <div class='row text-capitalize'>
-                    <a href="{{ output_dir + '/' + article_infos[post_id]['url_friendly_name'] }}">
-                        <h3 class="article-title">
-                            {{ article_infos[post_id]['title'] }}
-                        </h3>
-                        <h4 class="article-subtitle small text-muted">
-                            {{ article_infos[post_id]['description'] }}
-                        </h4>
-                    </a>
-                    <p class="article-meta">Post on {{ article_infos[post_id]['date'] }}</p>
-                </div>
+                    {% if num > 0 %}
+                        <div class='row text-capitalize'>
+                            <a href="{{ output_dir + '/' + article_infos[post_id]['url_friendly_name'] }}">
+                                <h3 class="article-title">
+                                    {{ article_infos[post_id]['title'] }}
+                                </h3>
+                                <h4 class="article-subtitle small text-muted">
+                                    {{ article_infos[post_id]['description'] }}
+                                </h4>
+                            </a>
+                            <p class="article-meta">{{ article_infos[post_id]['date'] }}</p>
+                        </div>
+                        {% set num = num - 1 %}
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -45,8 +49,12 @@
             <div class="row">
                 <p id="PS" class="center-block">Personal Statement: {{ data.PS }}</p>
             </div>
-            <div id="tags" class="row">
-                {{ data.taglist }}
+            <div class="row">
+                <ui id="tags" class="list-unstyled">
+                {% for tag in data.tags %}
+                    <li>{{ tag }}({{ data.tags[tag] }})</li> 
+                {% endfor %}
+                </ui>
             </div>
         </div>
     </div>

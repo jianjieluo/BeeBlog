@@ -23,3 +23,17 @@ h1 {
     margin-bottom: -99999px;
     padding-bottom: 99999px;
 }
+
+.article-subtitle {
+    width: 500px;
+}
+
+#tags > li {
+    text-align: left;
+    font-size: 12px;
+    color: blue;
+}
+
+.article-meta{
+    font-size: 14px;
+}
