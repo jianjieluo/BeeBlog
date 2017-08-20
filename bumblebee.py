@@ -30,22 +30,26 @@ class HighlightRenderer(mistune.Renderer):
                 mistune.escape(code)
         lexer = get_lexer_by_name(lang, stripall=True)
         formatter = html.HtmlFormatter()
-        return highlight(code, lexer, formatter)
+        return highlight(code, lexer, formatter)    
 
 def parse_file_name(name):
     name = name.replace(' ', '-')
     name = name.replace('_', '-')
 
-    url_friendly_name = ''
     title = ''
     date = ''
-    file_name = os.path.splitext(name)[0]
+    path_layer = []
+    temp = os.path.splitext(name)[0]
     if (name.lower().endswith(('.md', '.markdown'))):
-        url_friendly_name =  file_name + '.html'
-        title = file_name[11:].replace('-', ' ')
-        date = file_name[0:10]
+        title = temp[11:].replace('-', ' ')
+        date = temp[0:10]
+        path_layer = [temp[0:4],
+            temp[0:7].replace('-','/'),
+            temp[0:10].replace('-','/'),
+            temp[0:10].replace('-','/')+'/'+temp[11:]
+        ]
 
-    return url_friendly_name, title, date
+    return path_layer, title, date
 
 def load_posts_config(config):
     metadata = {}
@@ -98,7 +102,7 @@ if __name__ == '__main__':
             else:
                 tags[tag] = tags[tag] + 1
 
-        article_infos[post_id]['url_friendly_name'], article_infos[post_id]['title'], \
+        article_infos[post_id]['path_layer'], article_infos[post_id]['title'], \
         article_infos[post_id]['date'] = parse_file_name(file_name)
 
         with open(fqp, 'r', encoding='utf-8') as infile:
@@ -124,7 +128,7 @@ if __name__ == '__main__':
     # generate the article page
     for post_id in article_content:
         t = env.get_template("article.html")
-        SITES[article_infos[post_id]['url_friendly_name']] = t.render(
+        SITES[article_infos[post_id]['path_layer'][-1]+'/index.html'] = t.render(
             article={
                 'title': article_infos[post_id]['title'],
                 'date': article_infos[post_id]['date'],
@@ -162,10 +166,16 @@ if __name__ == '__main__':
 
     # create empty output directory
     os.makedirs(config['output_dir'])
-            
+
+    # make all the possible dir
+    for post_id in article_infos:
+        for p in article_infos[post_id]['path_layer']:
+            directory = os.path.join(config['output_dir'], p)
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+
     for post in SITES:
         fqp = os.path.join(config['output_dir'], post)
-
         with open(fqp, "w", encoding="utf-8") as output:
             output.write(SITES[post])
     

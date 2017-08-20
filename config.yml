@@ -1,5 +1,5 @@
 articles:
-  config: ./articles/config
-  posts: ./articles/posts
+  config: /build/articles/config
+  posts: /build/articles/posts
 output_dir: /usr/share/nginx/html
 static_dir: /build/static
