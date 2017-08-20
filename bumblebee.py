@@ -57,18 +57,18 @@ def load_posts_config(config):
     return metadata
 
 if __name__ == '__main__':
-    # # Grab commandline arguments and process them
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument("-c", "--config",
-    #                     help="Specify a configuration file",
-    #                     required=True)
-    # args = parser.parse_args()
+    # Grab commandline arguments and process them
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-c", "--config",
+                        help="Specify a configuration file",
+                        required=True)
+    args = parser.parse_args()
 
     # Open specified config file and load as yaml or error
     try:
-        cfh = open('./config.yml', "r")
+        cfh = open(args.config, "r", encoding='utf-8')
     except:
-        sys.stderr.write("Could not open file: {0}\n".format('./config.yml'))
+        sys.stderr.write("Could not open file: {0}\n".format(args.config))
         sys.exit(1)
     config = yaml.safe_load(cfh)
     cfh.close()

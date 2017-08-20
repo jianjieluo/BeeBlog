@@ -1,0 +1,5 @@
+articles:
+  config: ./articles/config
+  posts: ./articles/posts
+output_dir: ./site
+static_dir: ./static
