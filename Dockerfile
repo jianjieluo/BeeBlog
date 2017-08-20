@@ -32,4 +32,4 @@ COPY config.yml /build/
 COPY articles /build/articles
 
 ## Run Generator
-RUN cd /build && python3 bumblebee.py
+RUN cd /build && python3 bumblebee.py -c ./config.yml
