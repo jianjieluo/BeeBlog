@@ -52,10 +52,9 @@ def load_posts_config(config):
     metadata = {}
     for c in os.listdir(config['articles']['config']):
         cpath = os.path.join(config['articles']['config'], c)
-        cfh = open(cpath, 'r')
-        meta = yaml.safe_load(cfh)
-        cfh.close()
-        metadata[meta['post_id']] = meta
+        with open(cpath, 'r', encoding='utf-8') as infile:
+            meta = yaml.safe_load(infile)
+            metadata[meta['post_id']] = meta
     return metadata
 
 if __name__ == '__main__':
