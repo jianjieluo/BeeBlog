@@ -3,12 +3,6 @@
 FROM nginx:latest
 MAINTAINER Johnny Law <https://github.com/longjj>
 
-## NGINX custom config
-RUN mkdir -p /etc/nginx/globals && rm -vf /etc/nginx/sites-enabled/*
-COPY nginx/nginx.conf /etc/nginx/nginx.conf
-COPY nginx/htmlglobal.conf /etc/nginx/globals/
-COPY nginx/longjj.com.conf /etc/nginx/sites-enabled/
-
 ## Install python3 and pip3, to support Chinese
 
 RUN apt-get update \
@@ -23,6 +17,12 @@ RUN mkdir -p /build/
 ## Add requirements file and run pip
 COPY requirements.txt /build/
 RUN pip3 install -r /build/requirements.txt
+
+## NGINX custom config
+RUN mkdir -p /etc/nginx/globals && rm -vf /etc/nginx/sites-enabled/*
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
+COPY nginx/htmlglobal.conf /etc/nginx/globals/
+COPY nginx/longjj.com.conf /etc/nginx/sites-enabled/
 
 ## Add blog code nd required files
 COPY static /build/static

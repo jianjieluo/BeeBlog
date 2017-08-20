@@ -10,6 +10,7 @@ import shutil
 import yaml
 import argparse
 import sys
+from distutils import dir_util
 
 from jinja2 import FileSystemLoader, Environment
 
@@ -20,8 +21,6 @@ from pygments.formatters import html
 
 ARTICLES_DIR = "./articles"
 TEMPLATE_DIR = "./templates"
-SITE_DIR = "site"
-
 
 # use the script from the docs of mistune http://mistune.readthedocs.io/en/latest/
 class HighlightRenderer(mistune.Renderer):
@@ -119,7 +118,7 @@ if __name__ == '__main__':
         },
         article_infos=article_infos,
         post_ids=post_ids,
-        output_dir=config['output_dir']
+        output_dir=''
     )
 
     # generate the article page
@@ -169,5 +168,7 @@ if __name__ == '__main__':
 
         with open(fqp, "w", encoding="utf-8") as output:
             output.write(SITES[post])
+    
+    dir_util.copy_tree(config['static_dir'], config['output_dir'] + "/static")
 
     print ("Done!")

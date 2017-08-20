@@ -1,4 +1,5 @@
 articles:
   config: ./articles/config
   posts: ./articles/posts
-output_dir: /home/longj/Desktop/blog/site
+output_dir: /usr/share/nginx/html
+static_dir: /build/static
