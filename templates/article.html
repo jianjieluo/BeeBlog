@@ -18,7 +18,12 @@
     </div>
 
     <div id="content" class="container">
-        <p class="text-muted">1st posted on {{ article.date }}</p>
+        <p class="text-muted">
+            {% for tag in article.tags %}
+            <a href="/tags/{{ tag }}">#{{ tag }}</a>
+            {% endfor %}
+            Posted on {{ article.date }}
+        </p>
         {{ article.content }}
     </div>
 

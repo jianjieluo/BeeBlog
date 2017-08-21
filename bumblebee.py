@@ -140,7 +140,8 @@ if __name__ == '__main__':
             article={
                 'title': article_infos[post_id]['title'],
                 'date': article_infos[post_id]['date'],
-                'content': article_content[post_id]
+                'content': article_content[post_id],
+                'tags': article_infos[post_id]['tags']
             },
         )
 
@@ -195,7 +196,6 @@ if __name__ == '__main__':
 
     for tag in tags:
         directory = os.path.join(config['output_dir'], 'tags', tag)
-        print (directory)
         if not os.path.exists(directory):
             os.makedirs(directory)
 
