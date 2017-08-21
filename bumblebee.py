@@ -115,14 +115,17 @@ if __name__ == '__main__':
     template = env.get_template("index.html")
     post_ids.sort()
     SITES['index.html'] = template.render(
-        data={
-            'sitetitle': 'Johnny Law\'s Blog Home',
-            'PS': 'Study at Sun Yat-sen University, China',
-            'tags': tags
+        author = {
+            'name': config['author']['name'],
+            'photo': config['author']['photo'],
+            'introduction': "Undergraduate of SYSU, China",
+            'github': config['author']['github'],
+            'zhihu': config['author']['zhihu']
         },
+        sitetitle=config['sitetitle'],
+        tags=tags,
         article_infos=article_infos,
         post_ids=post_ids,
-        output_dir=''
     )
 
     # generate the article page
@@ -140,11 +143,11 @@ if __name__ == '__main__':
     template = env.get_template('about.html')
     SITES['about.html'] = template.render(
         author = {
-            'name': 'Johnny Law',
-            'photo': '../static/img/longj_photo.png',
-            'introdution': 'Study at Sun Yat-sen University',
-            'github': 'https://github.com/longjj',
-            'email': 'luojj26@mail2.sysu.edu.cn'
+            'name': config['author']['name'],
+            'photo': config['author']['photo'],
+            'introduction': config['author']['introduction'],
+            'github': config['author']['github'],
+            'zhihu': config['author']['zhihu']
         }
     )
 
@@ -174,6 +177,7 @@ if __name__ == '__main__':
             if not os.path.exists(directory):
                 os.makedirs(directory)
 
+    # generate the sites
     for post in SITES:
         fqp = os.path.join(config['output_dir'], post)
         with open(fqp, "w", encoding="utf-8") as output:

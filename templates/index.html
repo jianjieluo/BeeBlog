@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>{{ data.sitetitle }}</title>
+    <title>{{ sitetitle }}</title>
     <link href="/static/css/bootstrap.css" type="text/css" rel="stylesheet" />
     <link href="/static/css/base.css" type="text/css" rel="stylesheet" />
     <link href="/static/css/index.css" type="text/css" rel="stylesheet" />
@@ -11,6 +11,8 @@
 
 
 <body>
+
+{% include 'navbar.html' %}
 
     <div id="banner">
         <img src="/static/img/blogbanner.png" class="center-block"></img>
@@ -25,7 +27,7 @@
                 {% for post_id in post_ids|reverse %}
                     {% if num > 0 %}
                         <div class='row text-capitalize'>
-                            <a href="{{ output_dir + '/' + article_infos[post_id]['path_layer'][-1]}}">
+                            <a href="{{ '/' + article_infos[post_id]['path_layer'][-1]}}">
                                 <h3 class="article-title">
                                     {{ article_infos[post_id]['title'] }}
                                 </h3>
@@ -33,7 +35,12 @@
                                     {{ article_infos[post_id]['description'] }}
                                 </h4>
                             </a>
-                            <p class="article-meta">{{ article_infos[post_id]['date'] }}</p>
+                            <p class="article-meta text-lowercase">
+                                {% for tag in article_infos[post_id]['tags'] %}
+                                <a href="">#{{ tag }}</a>
+                                {% endfor %}
+                                {{ article_infos[post_id]['date'] }}
+                            </p>
                         </div>
                         {% set num = num - 1 %}
                     {% endif %}
@@ -44,17 +51,21 @@
         <div id="right-view" class="container pull-right col-md-3">
             <div class="row">
                 <a href='/about.html'>
-                    <img id="author-picture" class="center-block img-circle" src="../static/img/longj_photo.png"></img>
-                    <p>Johnny Law</p>
+                    <img id="author-picture" class="center-block img-circle" src="{{ author.photo }}"></img>
+                    <p>{{ author.name }}</p>
                 </a>
             </div>
             <div class="row">
-                <p id="PS" class="center-block">Personal Statement: {{ data.PS }}</p>
+                <p id="PS" class="center-block">{{ author.introduction }}</p>
+            </div>
+            <div class="row">
+                <a href="{{ author['github'] }}"><img src="/static/img/github.png" alt="github icon"><span>Github</span></a>
+                <a href="{{ author['zhihu'] }}"><img src="/static/img/zhihu.png" alt="zhihu icon"><span>Zhihu</span></a>
             </div>
             <div class="row">
                 <ui id="tags" class="list-unstyled">
-                {% for tag in data.tags %}
-                    <li><a>{{ tag }}({{ data.tags[tag] }})</a></li> 
+                {% for tag in tags %}
+                    <li><a herf="">{{ tag }}({{ tags[tag] }})</a></li> 
                 {% endfor %}
                 </ui>
             </div>

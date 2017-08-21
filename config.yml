@@ -1,5 +1,14 @@
+output_dir: /usr/share/nginx/html
+static_dir: /build/static
+sitetitle: Johnny Law's Blog Home
 articles:
   config: /build/articles/config
   posts: /build/articles/posts
-output_dir: /usr/share/nginx/html
-static_dir: /build/static
+author:
+  name: Johnny Law
+  nickname: longj
+  photo: /static/img/longj_photo.png
+  introduction: Study at Sun Yat-sen University, China. Major in Software Engineering. Lakers's and Arsenal's fan.
+  email: luojj26@mail2.sysu.edu.cn
+  github: https://github.com/longjj
+  zhihu: https://www.zhihu.com/people/longj-10/activities

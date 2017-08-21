@@ -50,3 +50,15 @@ footer {
   font-size: 12px;
   padding-bottom: 40px;
 }
+
+.navbar-custom {
+  background-color: #3C82C5;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+}

@@ -31,5 +31,17 @@
 }
 
 .article-meta{
-    font-size: 14px;
+    font-size: 12px;
+}
+
+.personallink{
+    padding: 12px;
+}
+
+.personallink > span {
+    color: #777;
+}
+
+p#PS {
+    padding: 10px;
 }

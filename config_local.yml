@@ -3,3 +3,14 @@ articles:
   posts: ./articles/posts
 output_dir: ./site
 static_dir: ./static
+
+author:
+  name: Johnny Law
+  nickname: longj
+  photo: /static/img/longj_photo.png
+  introduction: Study at Sun Yat-sen University, China. Major in Software Engineering. Lakers's and Arsenal's fan.
+  email: luojj26@mail2.sysu.edu.cn
+  github: https://github.com/longjj
+  zhihu: https://www.zhihu.com/people/longj-10/activities
+
+sitetitle: Johnny Law's Blog Home
