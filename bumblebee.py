@@ -98,9 +98,9 @@ if __name__ == '__main__':
 
         for tag in article_infos[post_id]['tags']:
             if tag not in tags:
-                tags[tag] = 1
+                tags[tag] = [post_id]
             else:
-                tags[tag] = tags[tag] + 1
+                tags[tag].append(post_id)
 
         article_infos[post_id]['path_layer'], article_infos[post_id]['title'], \
         article_infos[post_id]['date'] = parse_file_name(file_name)
@@ -113,7 +113,12 @@ if __name__ == '__main__':
 
     # generate the index page
     template = env.get_template("index.html")
+
+    # sort all the post_id
     post_ids.sort()
+    for tag in tags:
+        tags[tag].sort()
+
     SITES['index.html'] = template.render(
         author = {
             'name': config['author']['name'],
@@ -154,13 +159,21 @@ if __name__ == '__main__':
     # generate archive.html
     template = env.get_template('archive.html')
     SITES['archive.html'] = template.render(
-        data={
-            'sitetitle': 'Johnny Law\'s Blog Archive',
-        },
+        sitetitle='Johnny Law\'s Blog Archive',
+        class_type='Archive',
         article_infos=article_infos,
-        post_ids=post_ids,
-        output_dir=config['output_dir']
+        post_ids=post_ids
     )
+
+    # generate tags pages
+    template = env.get_template('archive.html')
+    for tag in tags:
+        SITES['tags/'+tag+'/index.html'] = template.render(
+            sitetitle='Blog Classification: ' + tag,
+            class_type='Classification: ' + tag,
+            article_infos=article_infos,
+            post_ids=tags[tag]
+        )
 
     # STEP 4 - write
     # remove output directory if it exists
@@ -176,6 +189,15 @@ if __name__ == '__main__':
             directory = os.path.join(config['output_dir'], p)
             if not os.path.exists(directory):
                 os.makedirs(directory)
+    
+    if not os.path.exists(os.path.join(config['output_dir'], 'tags')):
+        os.makedirs(os.path.join(config['output_dir'], 'tags'))
+
+    for tag in tags:
+        directory = os.path.join(config['output_dir'], 'tags', tag)
+        print (directory)
+        if not os.path.exists(directory):
+            os.makedirs(directory)
 
     # generate the sites
     for post in SITES:

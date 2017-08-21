@@ -37,7 +37,7 @@
                             </a>
                             <p class="article-meta text-lowercase">
                                 {% for tag in article_infos[post_id]['tags'] %}
-                                <a href="">#{{ tag }}</a>
+                                <a href="/tags/{{ tag }}">#{{ tag }}</a>
                                 {% endfor %}
                                 {{ article_infos[post_id]['date'] }}
                             </p>
@@ -63,9 +63,10 @@
                 <a href="{{ author['zhihu'] }}"><img src="/static/img/zhihu.png" alt="zhihu icon"><span>Zhihu</span></a>
             </div>
             <div class="row">
+                Tags:
                 <ui id="tags" class="list-unstyled">
                 {% for tag in tags %}
-                    <li><a herf="">{{ tag }}({{ tags[tag] }})</a></li> 
+                    <li><a href="/tags/{{ tag }}">{{ tag }}({{ tags[tag]|length }})</a></li> 
                 {% endfor %}
                 </ui>
             </div>

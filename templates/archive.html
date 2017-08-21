@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>{{ data.sitetitle }}</title>
+    <title>{{ sitetitle }}</title>
     <link href="/static/css/bootstrap.css" type="text/css" rel="stylesheet" />
     <link href="/static/css/base.css" type="text/css" rel="stylesheet" />
     <link href="/static/css/archive.css" type="text/css" rel="stylesheet" />
@@ -17,10 +17,10 @@
     </div>
 
     <div class="body container">
-        <h1>Archive</h1>
+        <h1>{{ class_type }}</h1>
         {% for post_id in post_ids|reverse %}
             <div class='row text-capitalize'>
-                <a href="{{ output_dir + '/' + article_infos[post_id]['path_layer'][-1]}}">
+                <a href="{{ '/' + article_infos[post_id]['path_layer'][-1]}}">
                     <h3 class="article-title">
                         {{ article_infos[post_id]['title'] }}
                     </h3>
