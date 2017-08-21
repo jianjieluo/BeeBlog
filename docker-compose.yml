@@ -1,6 +1,6 @@
-version: '2'
+version: '1'
 services:
-  myblog2:
+  blog:
     build: .
     ports: 
       - 80:80
