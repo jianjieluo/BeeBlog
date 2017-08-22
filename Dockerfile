@@ -1,15 +1,14 @@
-## Dockerfile that generates an instance of http://bencane.com
+## Dockerfile that generates an instance of www.longjj.com
 
 FROM nginx:latest
-MAINTAINER Johnny Law <https://github.com/longjj>
+LABEL maintainer="longjj"
 
 ## Install python3 and pip3, to support Chinese
-
+## change source.list, use Chinese mirror
+COPY sources.list /etc/apt/
 RUN apt-get update \
   && apt-get install -y python3-pip python3-dev \
-  && pip3 install --upgrade pip \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+  && pip3 install --upgrade pip
 
 ## Create a directory for required files
 RUN mkdir -p /build/
