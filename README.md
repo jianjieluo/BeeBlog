@@ -10,7 +10,7 @@ Source files of http://www.longjj.com and https://www.longjj.com
 
 ## Why BeeBlog
 
-I have tried some blog frameworks like Jekyll or Hexo. However, I am always spending lots of time reading doc for some functions. Once I found that making a static page generator is not difficult I decided to build my own blog. Beeblog has no  complex plugins supports. I just implement some basic features I need. During the developing, I am learning docker and nginx.
+I have tried some blog frameworks like Jekyll or Hexo. However, I am always spending lots of time reading doc for some functions. Once I found that making a static site generator is not difficult I decided to build my own blog. Beeblog has no  complex plugins supports. I just implement some basic features I need. During the developing, I am learning docker and nginx.
 
 I notice a code in the Internet and I think it's interesting while pretty right.
 
@@ -43,7 +43,9 @@ Then visit http://localhost:80 .
 
 > Notice: If you want to use https, you need to have your own ssl key and put the \*.crt and \*.key files in `/ssl_key` dir. Then change the config in `longjj.com.conf` to use your own ssl key.
 
-> Notice: All the article files name should be ASCII characters since my docker container system doesn't support utf-8. And it should obtain the format "xxxx-xx-xx-xxx-xxx-xxx.md" cause my name parser depends on the file name format.
+> Notice: All article filenames should be ASCII characters since my docker container system doesn't support utf-8. And it should obtain the format "xxxx-xx-xx-xxx-xxx-xxx.md" cause my name parser depends on the file name format.
+
+You can also use `python3 bumblebee.py -c config_local.yml` command to test your static site generator.
 
 ## Refference
 
