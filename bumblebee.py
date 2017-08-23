@@ -127,22 +127,21 @@ if __name__ == '__main__':
             'github': config['author']['github'],
             'zhihu': config['author']['zhihu']
         },
-        sitetitle=config['sitetitle'],
+        site=config['site'],
         tags=tags,
         article_infos=article_infos,
         post_ids=post_ids,
+        page_type='index'
     )
 
     # generate the article page
     for post_id in article_content:
         t = env.get_template("article.html")
         SITES[article_infos[post_id]['path_layer'][-1]+'/index.html'] = t.render(
-            article={
-                'title': article_infos[post_id]['title'],
-                'date': article_infos[post_id]['date'],
-                'content': article_content[post_id],
-                'tags': article_infos[post_id]['tags']
-            },
+            article=article_infos[post_id],
+            article_content = article_content[post_id],
+            site=config['site'],
+            page_type='article'
         )
 
     # generate about.html
@@ -154,7 +153,10 @@ if __name__ == '__main__':
             'introduction': config['author']['introduction'],
             'github': config['author']['github'],
             'zhihu': config['author']['zhihu']
-        }
+        },
+        sitetitle='About the Author',
+        site=config['site'],
+        page_type='about'
     )
 
     # generate archive.html
@@ -163,7 +165,9 @@ if __name__ == '__main__':
         sitetitle='Johnny Law\'s Blog Archive',
         class_type='Archive',
         article_infos=article_infos,
-        post_ids=post_ids
+        post_ids=post_ids,
+        site=config['site'],
+        page_type='achive'
     )
 
     # generate tags pages
@@ -173,7 +177,9 @@ if __name__ == '__main__':
             sitetitle='Blog Classification: ' + tag,
             class_type='Classification: ' + tag,
             article_infos=article_infos,
-            post_ids=tags[tag]
+            post_ids=tags[tag],
+            site=config['site'],
+            page_type='achive'
         )
 
     # STEP 4 - write

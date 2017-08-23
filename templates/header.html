@@ -1,49 +1,53 @@
 <head>
-    <link href="../static/css/bootstrap.css" type="text/css" rel="stylesheet" />
-    
-</head>
-
-<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- SEO Stuff -->
-    {% if meta['page_type'] == "index" %}
-      <title>{{ meta['site_name'] }} - {{ meta['site_shortdesc'] }}</title>
-      <meta property="og:title" content="{{ meta['site_name'] }} - {{ meta['site_shortdesc'] }}"/>
-      <meta name="description" content="{{ meta['site_description'] }}">
-      <meta property="og:description" content="{{ meta['site_description'] }}"/>
+    {% if page_type == "index" %}
+      <title>{{ site['name'] }} - {{ site['shortdesc'] }}</title>
+      <meta property="og:title" content="{{ site['name'] }} - {{ site['shortdesc'] }}"/>
+      <meta name="description" content="{{ site['description'] }}">
+      <meta property="og:description" content="{{ site['description'] }}"/>
       <meta property="og:type" content="profile"/>
-      <meta property="og:type:proile:username" content="madflojo"/>
-      <meta property="og:type:proile:first_name" content="Benjamin"/>
-      <meta property="og:type:proile:last_name" content="Cane"/>
-      <meta name="keywords" content="{%- for item in meta['site_keywords'] -%}{{ item }}, {%- endfor -%}">
-    {% elif meta['page_type'] == "article" %}
-      <title>{{ data['title'] }} | {{ meta['site_name'] }}</title>
-      <meta property="og:title" content="{{ data['title'] }} | {{ meta['site_name'] }}"/>
-      <meta name="description" content="{{ data['description'] }}">
-      <meta property="og:description" content="{{ data['description'] }}"/>
+      <meta property="og:type:proile:username" content="longjj"/>
+      <meta property="og:type:proile:first_name" content="Johnny"/>
+      <meta property="og:type:proile:last_name" content="Law"/>
+      <meta name="keywords" content="{%- for item in site['keywords'] -%}{{ item }}, {%- endfor -%}">
+    {% elif page_type == "article" %}
+      <title>{{ article['title'] }} | {{ site['name'] }}</title>
+      <meta property="og:title" content="{{ article['title'] }} | {{ site['name'] }}"/>
+      <meta name="description" content="{{ article['description'] }}">
+      <meta property="og:description" content="{{ article['description'] }}"/>
       <meta property="og:type" content="article"/>
-      <meta name="keywords" content="{% for item in data['cats'] %}{{ item }}, {% endfor %}{% for item in data['tags'] %}{{ item }}, {% endfor %}">
-      <meta property="og:type:article:author" content="{{ meta['site_authorlink'] }}" \>
+      <meta name="keywords" content="{% for item in article.keywords %}{{ item }}, {% endfor %}{% for item in article.tags %}{{ item }}, {% endfor %}">
+      <meta property="og:type:article:author" content="https://github.com/longjj" \>
     {% else %}
-      <title>{{ meta['additional_pages'][meta['page_type']]['title'] }} | {{ meta['site_name'] }}</title>
-      <meta property="og:title" content="{{ meta['additional_pages'][meta['page_type']]['title'] }} | {{ meta['site_name'] }}"/>
-      <meta name="description" content="{{ meta['site_description'] }}">
-      <meta property="og:description" content="{{ meta['site_description'] }}"/>
+      <title>{{ sitetitle }}</title>
+      <meta property="og:title" content="{{ sitetitle }} | {{ site['name'] }}"/>
+      <meta name="description" content="{{ site['description'] }}">
+      <meta property="og:description" content="{{ site['description'] }}"/>
       <meta property="og:type" content="website"/>
-      <meta name="keywords" content="{%- for item in meta['site_keywords'] -%}{{ item }}, {%- endfor -%}">
+      <meta name="keywords" content="{%- for item in site['keywords'] -%}{{ item }}, {%- endfor -%}">
     {% endif %}
 
-    <meta property="og:url" content="{{ meta['site_url'] }}{{ data['full_url'] }}"/>
-    <meta name="author" content="{{ meta['site_author'] }}">
-    <link rel="author" href="{{ meta['site_authorlink'] }}" \>
-    <meta property="og:image" content="{{ meta['site_thumbnail'] }}"/>
-    <meta property="og:site_name" content="{{ meta['site_name'] }}"/>
+    <!-- <meta property="og:url" content="{{ site['url'] }}{{ data['full_url'] }}"/> -->
+    <meta name="author" content="Johnny Law">
+    <link rel="author" href="https://github.com/longjj" \>
+    <!-- <meta property="og:image" content="{{ meta['site_thumbnail'] }}"/> -->
+    <meta property="og:site_name" content="{{ site['name'] }}"/>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="/static/css/bootstrap2.css" rel="stylesheet">
+    <!-- CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/base.css" rel="stylesheet">
+    {% if page_type == "index" %}
+    <link href="/static/css/index.css" type="text/css" rel="stylesheet" />
+    {% elif page_type == "archive" %}
+    <link href="/static/css/archive.css" type="text/css" rel="stylesheet" />
+    {% elif page_type == "about" %}
+    <link href="/static/css/about.css" type="text/css" rel="stylesheet" />
+    {% endif %}
 
-    <!-- Custom CSS -->
-    <link href="/static/css/clean-blog2.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="shortcut icon" href="/static/img/favicon.png">
 </head>

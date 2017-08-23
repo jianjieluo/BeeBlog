@@ -5,3 +5,6 @@ tags:
 - debug
 - utils
 file: 2017-08-16-gdb-learning.md
+keywords:
+- gdb
+lang: zh-cmn-Hans

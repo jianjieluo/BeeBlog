@@ -3,3 +3,8 @@ post_id: 3
 tags:
 - cpp
 file: 2017-08-16-c++-override-and-final.md
+keywords:
+- override
+- final
+- c++11
+lang: en
