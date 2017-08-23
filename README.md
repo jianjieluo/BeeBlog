@@ -4,9 +4,9 @@
 
 **The Perfect Static Website Generator is the One You Write Yourself**. Personal Blog of Johnny Law written in python3.
 
-Source files of http://www.longjj.com
+Source files of http://www.longjj.com and https://www.longjj.com
 
-(PS: 由于中国原因，我的博客网站仍然在备案中，暂时无法访问，估计2017.09左右才能正常访问)
+> Notice: 由于在中国原因，我的博客网站仍然在备案中，http协议暂时无法访问，估计2017.09左右才能正常访问。https协议的访问应该可以work。
 
 ## Why BeeBlog
 
@@ -28,7 +28,7 @@ So here's Beeblog. I chose the name **bumblebee** when I was watching Transforme
 
 `bumblebee.py` is a python3 static page generator. Use docker to build a image and run `bumblebee.py` in a corresponding container. The nginx proxy in the container listens requests.
 
-If you are not in China, maybe you don't need to change the software sources in `sources.list`.
+> Notice: If you are not in China, maybe you don't need to change the software sources in `sources.list`.
 
 ## Try it
 Make sure you have installed docker in your system.
@@ -40,6 +40,8 @@ bash ./local_deploy.sh
 ```
 
 Then visit http://localhost:80 .
+
+> Notice: If you want to use https, you need to have your own ssl key and put the \*.crt and \*.key files in `/ssl_key` dir. Then change the config in `longjj.com.conf` to use your own ssl key.
 
 > Notice: All the article files name should be ASCII characters since my docker container system doesn't support utf-8. And it should obtain the format "xxxx-xx-xx-xxx-xxx-xxx.md" cause my name parser depends on the file name format.
 
