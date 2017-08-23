@@ -39,6 +39,8 @@ bash ./local_deploy.sh
 
 Then visit http://localhost:80 .
 
+> Notice: All the article files name should be ASCII characters since my docker container system doesn't support utf-8. And it should obtain the format "xxxx-xx-xx-xxx-xxx-xxx.md" cause my name parser depends on the file name format.
+
 ## Refference
 
 1. [How To Write A Static Site Generator](https://screamingatmyscreen.com/2014/5/how-to-write-a-static-site-generator/) gives me a basic concept about static page generator.
