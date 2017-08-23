@@ -175,7 +175,7 @@ if __name__ == '__main__':
     for tag in tags:
         SITES['tags/'+tag+'/index.html'] = template.render(
             sitetitle='Blog Classification: ' + tag,
-            class_type='Classification: ' + tag,
+            class_type='Tag: ' + tag,
             article_infos=article_infos,
             post_ids=tags[tag],
             site=config['site'],
