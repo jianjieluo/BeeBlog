@@ -29,6 +29,7 @@ COPY templates /build/templates
 COPY bumblebee.py /build/
 COPY config.yml /build/
 COPY articles /build/articles
+COPY ssl_key /build/ssl_key
 
 ## Run Generator
 RUN cd /build && python3 bumblebee.py -c ./config.yml
