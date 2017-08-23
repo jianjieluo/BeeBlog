@@ -28,7 +28,12 @@
                         {{ article_infos[post_id]['description'] }}
                     </h4>
                 </a>
-                <p class="article-meta">{{ article_infos[post_id]['date'] }}</p>
+                <p class="article-meta text-lowercase">
+                    {% for tag in article_infos[post_id]['tags'] %}
+                    <a href="/tags/{{ tag }}">#{{ tag }}</a>
+                    {% endfor %}
+                    {{ article_infos[post_id]['date'] }}
+                </p>
             </div>
         {% endfor %}
     </div>

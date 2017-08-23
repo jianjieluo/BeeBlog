@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
 
-    font-family: Georgia, Tahoma, sans-serif, "Microsoft YaHei", "微软雅黑";
+    Font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", SimSun, "宋体", sans-serif;
     font-size: 18px;
     color: #545454;
 
@@ -22,26 +22,7 @@ h4,
 h5,
 h6 {
     color: #3C82C5;
-}
-
-/*Default a css*/
-a:hover,
-a:focus {
-  color: #2a6496;
-  text-decoration: underline;
-}
-
-a:focus {
-  outline: thin dotted #333;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
-
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+    font-family: 'Montserrat', Helvetica, Tahoma, Arial, STXihei, "华文细黑", SimSun, "宋体", sans-serif;
 }
 
 footer {
@@ -61,4 +42,18 @@ footer {
 
 .navbar-default .navbar-brand {
   color: white;
+}
+
+.body {
+  width: 800px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.article-subtitle {
+  width: 500px;
+}
+
+.article-meta{
+  font-size: 12px;
 }

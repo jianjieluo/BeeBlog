@@ -9,37 +9,18 @@
     text-align: center;
 }
 
-.body {
-    width: 800px;
-    margin: auto;
-    overflow: hidden;
-}
-
 [class*="col-"]{
     margin-bottom: -99999px;
     padding-bottom: 99999px;
 }
 
-.article-subtitle {
-    width: 500px;
-}
-
-#tags > li {
+#tags {
     text-align: left;
-    font-size: 14px;
     margin-left: 12px;
 }
 
-.article-meta{
-    font-size: 12px;
-}
-
-.personallink{
-    padding: 12px;
-}
-
-.personallink > span {
-    color: #777;
+#tags > ui > li {
+    font-size: 14px;
 }
 
 p#PS {
