@@ -5,36 +5,34 @@
 
     <!-- SEO Stuff -->
     {% if page_type == "index" %}
-      <title>{{ site['name'] }} - {{ site['shortdesc'] }}</title>
-      <meta property="og:title" content="{{ site['name'] }} - {{ site['shortdesc'] }}"/>
-      <meta name="description" content="{{ site['description'] }}">
-      <meta property="og:description" content="{{ site['description'] }}"/>
-      <meta property="og:type" content="profile"/>
-      <meta property="og:type:proile:username" content="longjj"/>
-      <meta property="og:type:proile:first_name" content="Johnny"/>
-      <meta property="og:type:proile:last_name" content="Law"/>
-      <meta name="keywords" content="{%- for item in site['keywords'] -%}{{ item }}, {%- endfor -%}">
+    <title>{{ site['name'] }} - {{ site['shortdesc'] }}</title>
+    <meta property="og:title" content="{{ site['name'] }} - {{ site['shortdesc'] }}"/>
+    <meta name="description" content="{{ site['description'] }}">
+    <meta property="og:description" content="{{ site['description'] }}"/>
+    <meta property="og:type" content="profile"/>
+    <meta property="og:type:proile:username" content="longjj"/>
+    <meta property="og:type:proile:first_name" content="Johnny"/>
+    <meta property="og:type:proile:last_name" content="Law"/>
+    <meta name="keywords" content="{%- for item in site['keywords'] -%}{{ item }}, {%- endfor -%}">
     {% elif page_type == "article" %}
-      <title>{{ article['title'] }} | {{ site['name'] }}</title>
-      <meta property="og:title" content="{{ article['title'] }} | {{ site['name'] }}"/>
-      <meta name="description" content="{{ article['description'] }}">
-      <meta property="og:description" content="{{ article['description'] }}"/>
-      <meta property="og:type" content="article"/>
-      <meta name="keywords" content="{% for item in article.keywords %}{{ item }}, {% endfor %}{% for item in article.tags %}{{ item }}, {% endfor %}">
-      <meta property="og:type:article:author" content="https://github.com/longjj" \>
+    <title>{{ article['title'] }} | {{ site['name'] }}</title>
+    <meta property="og:title" content="{{ article['title'] }} | {{ site['name'] }}"/>
+    <meta name="description" content="{{ article['description'] }}">
+    <meta property="og:description" content="{{ article['description'] }}"/>
+    <meta property="og:type" content="article"/>
+    <meta name="keywords" content="{% for item in article.keywords %}{{ item }}, {% endfor %}{% for item in article.tags %}{{ item }}, {% endfor %}">
+    <meta property="og:type:article:author" content="https://github.com/longjj" \>
     {% else %}
-      <title>{{ sitetitle }}</title>
-      <meta property="og:title" content="{{ sitetitle }} | {{ site['name'] }}"/>
-      <meta name="description" content="{{ site['description'] }}">
-      <meta property="og:description" content="{{ site['description'] }}"/>
-      <meta property="og:type" content="website"/>
-      <meta name="keywords" content="{%- for item in site['keywords'] -%}{{ item }}, {%- endfor -%}">
+    <title>{{ sitetitle }}</title>
+    <meta property="og:title" content="{{ sitetitle }} | {{ site['name'] }}"/>
+    <meta name="description" content="{{ site['description'] }}">
+    <meta property="og:description" content="{{ site['description'] }}"/>
+    <meta property="og:type" content="website"/>
+    <meta name="keywords" content="{%- for item in site['keywords'] -%}{{ item }}, {%- endfor -%}">
     {% endif %}
 
-    <!-- <meta property="og:url" content="{{ site['url'] }}{{ data['full_url'] }}"/> -->
     <meta name="author" content="Johnny Law">
     <link rel="author" href="https://github.com/longjj" \>
-    <!-- <meta property="og:image" content="{{ meta['site_thumbnail'] }}"/> -->
     <meta property="og:site_name" content="{{ site['name'] }}"/>
 
     <!-- CSS -->
