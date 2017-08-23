@@ -1,5 +1,5 @@
 # BeeBlog
-
+![beeicons](./static/img/blogbanner.png)
 **The Perfect Static Website Generator is the One You Write Yourself**. Personal Blog of Johnny Law written in python3.
 
 Source files of http://www.longjj.com
@@ -45,6 +45,7 @@ Then visit http://localhost:80 .
 
 1. [How To Write A Static Site Generator](https://screamingatmyscreen.com/2014/5/how-to-write-a-static-site-generator/) gives me a basic concept about static page generator.
 2. [Benjamin Cane's blog repo](https://github.com/madflojo/blog) has pretty good code style and file structure and I learn a lot from his repo.
+3. [Icon Refference](https://icons8.com/icon/50492/Bee).
 
 ## About this repo
 
