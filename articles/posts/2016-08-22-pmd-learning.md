@@ -11,7 +11,7 @@ java静态代码检查工具——pmd的使用笔记
 java的代码检查工具并不少，比较主流的有pmd,checkstyle,sonarlint等等，其中，checkstyle只是检查代码风格，pmd和sonarlint的内容和oclint的检查方面非常类似。sonarlint-cli是sonar的一个分支项目，提供的内容十分全面，输出格式html非常炫酷，阅读起来非常方便，但是由于它的github项目开始不久，格式提供并不丰富，难以集成在第三方的软件中，所以sonarlint-cli更加适合于直接的java develop。想比较而言pmd相对成熟，输出虽然没有Matrix想要的json格式，但是也有比较方便处理的xml格式，所以最终选择它。
 
 ### 使用方法
-pmd可以作为插件集成在eclipse等ide下使用，也可以在linux和windows下的命令行下直接使用，由于需求需要此处只说明pmd在linux下的使用方法，如果是linux刚入门的同学可以先阅读这篇**[博客](http://blog.vmatrix.org.cn/linux-ming-ling-chu-tan/)**对linux命令行的使用有一个初步的了解，感谢作者**Hsu**
+pmd可以作为插件集成在eclipse等ide下使用，也可以在linux和windows下的命令行下直接使用，由于需求需要此处只说明pmd在linux下的使用方法。
 
 ### Installation
 pmd的下载使用，只需要通过官网下载二进制的发行版即可以使用。
