@@ -1,10 +1,10 @@
 description: C++代码质量检查工具OCLint的使用
-post_id: 1
+post_id: 4
 tags:
 - cpp
 - static_check
 - utils
-file: 2017-08-15-oclint-usage.md
+file: 2016-08-23-oclint-usage.md
 keywords:
 - oclint
 lang: zh-cmn-Hans

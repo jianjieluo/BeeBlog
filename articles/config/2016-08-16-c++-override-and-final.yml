@@ -1,8 +1,8 @@
 description: Use C++11 Inheritance Control Keywords to Prevent Inconsistencies in Class Hierarchies
-post_id: 3
+post_id: 1
 tags:
 - cpp
-file: 2017-08-16-c++-override-and-final.md
+file: 2016-08-16-c++-override-and-final.md
 keywords:
 - override
 - final
