@@ -10,7 +10,7 @@
     </div>
 
     <div class="body container">
-        <h1>{{ class_type }}</h1>
+        <h1 class="text-capitalize">{{ class_type }}</h1>
         {% for post_id in post_ids|reverse %}
             <div class='row text-capitalize'>
                 <a href="{{ '/' + article_infos[post_id]['path_layer'][-1]}}">

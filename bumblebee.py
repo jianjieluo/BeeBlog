@@ -167,7 +167,7 @@ if __name__ == '__main__':
         article_infos=article_infos,
         post_ids=post_ids,
         site=config['site'],
-        page_type='achive'
+        page_type='archive'
     )
 
     # generate tags pages
@@ -179,7 +179,7 @@ if __name__ == '__main__':
             article_infos=article_infos,
             post_ids=tags[tag],
             site=config['site'],
-            page_type='achive'
+            page_type='archive'
         )
 
     # STEP 4 - write
