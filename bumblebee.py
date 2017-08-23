@@ -19,7 +19,6 @@ from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import html
 
-ARTICLES_DIR = "./articles"
 TEMPLATE_DIR = "./templates"
 
 # use the script from the docs of mistune http://mistune.readthedocs.io/en/latest/
