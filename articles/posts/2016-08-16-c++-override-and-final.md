@@ -1,5 +1,3 @@
-[toc]
-
 Use C++11 Inheritance Control Keywords to Prevent Inconsistencies in Class Hierarchies
 ======================================================================================
 
