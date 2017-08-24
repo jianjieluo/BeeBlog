@@ -43,7 +43,7 @@ Then visit http://localhost:80 .
 
 > Notice: If you want to use https, you need to have your own ssl key and put the \*.crt and \*.key files in `/ssl_key` dir. Then change the config in `longjj.com.conf` to use your own ssl key.
 
-> Notice: All article filenames should be ASCII characters since my docker container system doesn't support utf-8. And it should obtain the format "xxxx-xx-xx-xxx-xxx-xxx.md" cause my name parser depends on the file name format.
+> Notice: All article filenames should obtain the format "xxxx-xx-xx-xxx-xxx-xxx.md" cause my name parser depends on the file name format.
 
 You can also use `python3 bumblebee.py -c config_local.yml` command to test your static site generator.
 
