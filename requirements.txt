@@ -1,4 +1,4 @@
-jinja2
-PyYaml
-mistune
-pygments
+jinja2==2.8
+PyYAML==3.12
+mistune==0.7.4
+Pygments==2.2.0
