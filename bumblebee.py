@@ -101,6 +101,14 @@ if __name__ == '__main__':
             else:
                 tags[tag].append(post_id)
 
+        # grep special_columns infos
+        if article_infos[post_id]['column'] is not -1:
+            c = article_infos[post_id]['column']
+            if c not in config['special_columns']:
+                raise AttributeError('No such a special column! ', c)
+            else:
+                config['special_columns'][c].append(post_id)
+
         article_infos[post_id]['path_layer'], article_infos[post_id]['title'], \
         article_infos[post_id]['date'] = parse_file_name(file_name)
 
@@ -130,7 +138,8 @@ if __name__ == '__main__':
         tags=tags,
         article_infos=article_infos,
         post_ids=post_ids,
-        page_type='index'
+        page_type='index',
+        columns=config['special_columns']
     )
 
     # generate the article page
@@ -140,7 +149,9 @@ if __name__ == '__main__':
             article=article_infos[post_id],
             article_content = article_content[post_id],
             site=config['site'],
-            page_type='article'
+            page_type='article',
+            tags=tags,
+            columns=config['special_columns']
         )
 
     # generate about.html
@@ -155,7 +166,9 @@ if __name__ == '__main__':
         },
         sitetitle='About the Author',
         site=config['site'],
-        page_type='about'
+        page_type='about',
+        tags=tags,
+        columns=config['special_columns']
     )
 
     # generate archive.html
@@ -166,7 +179,9 @@ if __name__ == '__main__':
         article_infos=article_infos,
         post_ids=post_ids,
         site=config['site'],
-        page_type='archive'
+        page_type='archive',
+        tags=tags,
+        columns=config['special_columns']
     )
 
     # generate tags pages
@@ -174,11 +189,28 @@ if __name__ == '__main__':
     for tag in tags:
         SITES['tags/'+tag+'/index.html'] = template.render(
             sitetitle='Blog Classification: ' + tag,
-            class_type='Tag: ' + tag,
+            class_type=tag,
             article_infos=article_infos,
             post_ids=tags[tag],
             site=config['site'],
-            page_type='archive'
+            page_type='archive',
+            tags=tags,
+            columns=config['special_columns']
+        )
+
+    # generate columns pages
+    template = env.get_template('archive.html')
+    for c in config['special_columns']:
+        config['special_columns'][c].sort()
+        SITES['columns/'+c+'/index.html'] = template.render(
+            sitetitle='Blog Special-Column: ' + c,
+            class_type=c,
+            article_infos=article_infos,
+            post_ids=config['special_columns'][c],
+            site=config['site'],
+            page_type='archive',
+            tags=tags,
+            columns=config['special_columns']
         )
 
     # STEP 4 - write
@@ -202,6 +234,14 @@ if __name__ == '__main__':
     for tag in tags:
         directory = os.path.join(config['output_dir'], 'tags', tag)
         if not os.path.exists(directory):
+            os.makedirs(directory)
+    
+    if not os.path.isdir(os.path.join(config['output_dir'], 'columns')):
+        os.makedirs(os.path.join(config['output_dir'], 'columns'))
+
+    for c in config['special_columns']:
+        directory = os.path.join(config['output_dir'], 'columns', c)
+        if not os.path.isdir(directory):
             os.makedirs(directory)
 
     # generate the sites

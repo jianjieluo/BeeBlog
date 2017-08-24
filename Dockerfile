@@ -1,14 +1,21 @@
 ## Dockerfile that generates an instance of www.longjj.com
-
 FROM nginx:latest
 LABEL maintainer="longjj"
+ENV LANG="en_US.UTF-8"
 
 ## Install python3 and pip3, to support Chinese
 ## change source.list, use Chinese mirror
 COPY sources.list /etc/apt/
 RUN apt-get update \
-  && apt-get install -y python3-pip python3-dev \
+  && apt-get install -y python3-pip python3-dev locales\
   && pip3 install --upgrade pip
+
+# use locale.gen to set image's default encoding.
+RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
+    cp /etc/locale.alias /usr/share/locale/ && \
+    locale-gen en_US.UTF-8 && \
+    /usr/sbin/update-locale LANG=en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
 
 ## Create a directory for required files
 RUN mkdir -p /build/

@@ -40,12 +40,12 @@
     <link href="/static/css/base.css" rel="stylesheet">
     {% if page_type == "index" %}
     <link href="/static/css/index.css" type="text/css" rel="stylesheet" />
-    {% elif page_type == "archive" %}
-    <link href="/static/css/archive.css" type="text/css" rel="stylesheet" />
     {% elif page_type == "about" %}
     <link href="/static/css/about.css" type="text/css" rel="stylesheet" />
     {% elif page_type == "article" %}
     <link href="/static/css/solarized-light.css" type="text/css" rel="stylesheet" />
+    {% else %}
+    <link href="/static/css/archive.css" type="text/css" rel="stylesheet" />
     {% endif %}
 
     <!-- script -->
