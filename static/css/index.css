@@ -4,7 +4,7 @@
     height: 150px;
 }
 
-#right-view {
+#right-view > div {
     background-color: #EEE8D5;
     text-align: center;
 }
@@ -14,15 +14,10 @@
     padding-bottom: 99999px;
 }
 
-#tags {
-    text-align: left;
-    margin-left: 12px;
-}
-
-#tags > ul > li {
-    font-size: 14px;
-}
-
 p#PS {
     padding: 10px;
+}
+
+.community > a {
+    color: #545454;
 }

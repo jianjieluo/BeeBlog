@@ -56,17 +56,9 @@
             <div class="row">
                 <p id="PS" class="center-block">{{ author.introduction }}</p>
             </div>
-            <div class="row">
-                <a class="btn btn-link" href="{{ author['github'] }}"><img src="/static/img/github.png" alt="github icon"><span>Github</span></a>
-                <a class="btn btn-link" href="{{ author['zhihu'] }}"><img src="/static/img/zhihu.png" alt="zhihu icon"><span>Zhihu</span></a>
-            </div>
-            <div id="tags" class="row">
-                Tags:
-                <ul class="list-unstyled">
-                {% for tag in tags %}
-                    <li><a href="/tags/{{ tag }}">{{ tag }}({{ tags[tag]|length }})</a></li> 
-                {% endfor %}
-                </ul>
+            <div class="row community">
+                <a class="btn btn-info pull-left" href="{{ author['github'] }}"><img src="/static/img/github.png" alt="github icon"><span>Github</span></a>
+                <a class="btn btn-info pull-right" href="{{ author['zhihu'] }}"><img src="/static/img/zhihu.png" alt="zhihu icon"><span>Zhihu</span></a>
             </div>
         </div>
     </div>
