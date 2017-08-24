@@ -56,4 +56,10 @@ footer {
 
 .article-meta{
   font-size: 12px;
+  text-align: right;
+}
+
+.article-title > span {
+  font-size: 14px;
+  vertical-align: bottom;
 }

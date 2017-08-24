@@ -16,6 +16,11 @@
                 <a href="{{ '/' + article_infos[post_id]['path_layer'][-1]}}">
                     <h3 class="article-title">
                         {{ article_infos[post_id]['title'] }}
+                        {% if article_infos[post_id]['lang'] == "en"%}
+                        <span class="label label-info pull-left">en</span>
+                        {% elif article_infos[post_id]['lang'] == "zh-cmn-Hans"%}
+                        <span class="label label-info pull-left">cn</span>
+                        {% endif %}
                     </h3>
                     <h4 class="article-subtitle small text-muted">
                         {{ article_infos[post_id]['description'] }}
