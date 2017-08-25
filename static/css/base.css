@@ -49,13 +49,13 @@ footer {
 }
 
 .body {
-  width: 800px;
+  width: 75%;
   margin: auto;
   overflow: hidden;
 }
 
 .article-subtitle {
-  width: 500px;
+  width: 100%;
 }
 
 .article-meta{
