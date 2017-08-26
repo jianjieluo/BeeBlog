@@ -36,7 +36,7 @@ Make sure you have installed docker in your system.
 ```bash
 git clone https://github.com/longjj/BeeBlog
 cd ./BeeBlog
-bash ./local_deploy.sh
+make deploy
 ```
 
 Then visit http://localhost:80 .
