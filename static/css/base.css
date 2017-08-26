@@ -48,12 +48,6 @@ footer {
   color: white;
 }
 
-.body {
-  width: 75%;
-  margin: auto;
-  overflow: hidden;
-}
-
 .article-subtitle {
   width: 100%;
 }
@@ -66,4 +60,23 @@ footer {
 .article-title > span {
   font-size: 14px;
   vertical-align: bottom;
+}
+
+.body {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 480px) { 
+  .body {
+    width: 100%;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 24px;
+  }
 }
