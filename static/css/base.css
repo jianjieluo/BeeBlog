@@ -36,7 +36,8 @@ footer {
   padding-bottom: 10px;
 }
 
-img { 
+img {
+  width: auto;
   max-width: 100%;
   max-height: 100%;
 }
@@ -51,6 +52,10 @@ img {
 
 .navbar-default .navbar-brand {
   color: white;
+}
+
+.dropdown-menu {
+  background-color: #FDF6E3;
 }
 
 .article-subtitle {
@@ -68,13 +73,13 @@ img {
 }
 
 .body {
-  width: 750px;
+  width: 720px;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
 }
 
-@media screen and (max-width: 480px) { 
+@media screen and (max-width: 720px) { 
   .body {
     width: 100%;
   }

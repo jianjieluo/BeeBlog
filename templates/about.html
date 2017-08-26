@@ -10,17 +10,17 @@
   <div class="hidden-xs">
     <img id="banner" src="/static/img/blogbanner.png" class="center-block"></img>
   </div>
-  <img id="picture" src="{{ author.photo }}"></img>
+  <div class="body container">
+    <img id="picture" src="{{ author.photo }}"></img>
 
-  <div id="about" class="container">
-    <h1>About The Author</h1>
-    <p>{{ author.introduction }}</p>
-  </div>
-  <div id="contact" class="container">
-    <h1>Other Communities</h1>
-    <div class="row">
-      <a href="{{ author.github }}"><img src="/static/img/github.png" alt="github icon"><span>Github</span></a>
-      <a href="{{ author.zhihu }}"><img src="/static/img/zhihu.png" alt="zhihu icon"><span>Zhihu</span></a>
+    <div id="about">
+      <h1>About The Author</h1>
+      <p>{{ author.introduction }}</p>
+    </div>
+    <div id="contact">
+      <h1>Other Communities</h1>
+      <a href="{{ author.github }}" class="button button-glow button-rounded button-raised button-primary"><img src="/static/img/github.png" alt="github icon"><span>Github</span></a>
+      <a href="{{ author.zhihu }}" class="button button-glow button-rounded button-raised button-primary"><img src="/static/img/zhihu.png" alt="zhihu icon"><span>Zhihu</span></a>
     </div>
   </div>
 

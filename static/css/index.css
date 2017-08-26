@@ -1,17 +1,12 @@
 #author-picture {
-    padding: 1%;
-    width: 150px;
-    height: 150px;
+    margin-top: 12px;    
+    width: 160px;
+    height: 160px;
 }
 
-#right-view > div {
+#right-view {
     background-color: #EEE8D5;
     text-align: center;
-}
-
-[class*="col-"]{
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
 }
 
 p#PS {
@@ -19,5 +14,11 @@ p#PS {
 }
 
 .community > a {
-    color: #545454;
+    display: block;
+}
+
+.community > a > img {
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
 }
