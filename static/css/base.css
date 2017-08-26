@@ -36,6 +36,11 @@ footer {
   padding-bottom: 40px;
 }
 
+img { 
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .navbar-custom {
   background-color: #3C82C5;
 }
@@ -79,4 +84,8 @@ footer {
   h2 {
     font-size: 24px;
   }
+}
+
+#banner {
+  max-width: 100%;
 }
