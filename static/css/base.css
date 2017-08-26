@@ -30,10 +30,10 @@ nav {
 }
 
 footer {
-  margin-top: 40px;
+  margin-top: 32px;
   text-align: center;
   font-size: 12px;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
 }
 
 img { 
@@ -68,7 +68,7 @@ img {
 }
 
 .body {
-  width: 75%;
+  width: 750px;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
