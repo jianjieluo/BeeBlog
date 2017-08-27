@@ -1,5 +1,9 @@
 #!usr/bin/python3
 
+"""
+This module is used to assist me to add articles faster.
+"""
+
 import os
 import yaml
 import datetime
