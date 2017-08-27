@@ -2,8 +2,10 @@ description: 恐龙书阅读笔记，第三章进程的自我总结
 post_id: 7
 tags:
 - operating system
-file: 2017-08-22-osnote-Chapter-3- Process.md
+file: 2017-08-22-osnote-Chapter-3-Process.md
 keywords:
-- operating system structure
+- 进程
+- process
+- 进程状态
 lang: zh-cmn-Hans
 column: 操作系统恐龙书阅读笔记
