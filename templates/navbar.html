@@ -25,7 +25,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             {% for c in columns %}
-                            <li><a href="/columns/{{ c }}">{{ c }}</a></li>
+                            <li><a href="/columns/{{ c }}">{{ c }}({{ columns[c]|length }})</a></li>
                             {% endfor %}
                         </ul>
                     </li>
