@@ -1,4 +1,4 @@
-#！usr/bin/python3
+#!usr/bin/python3
 
 """
 bumblebee.py - A sample static website generater writen in python for Johnny Law's blog
@@ -18,8 +18,6 @@ import mistune
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import html
-
-TEMPLATE_DIR = "./templates"
 
 # use the script from the docs of mistune http://mistune.readthedocs.io/en/latest/
 class HighlightRenderer(mistune.Renderer):
@@ -47,7 +45,6 @@ def parse_file_name(name):
             temp[0:10].replace('-','/'),
             temp[0:10].replace('-','/')+'/'+temp[11:]
         ]
-
     return path_layer, title, date
 
 def load_posts_config(config):
@@ -116,7 +113,7 @@ if __name__ == '__main__':
             article_content[post_id] = markdown(infile.read())
 
     # STEP 3 - template
-    env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
+    env = Environment(loader=FileSystemLoader(config['templates_dir']))
 
     # generate the index page
     template = env.get_template("index.html")

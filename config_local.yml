@@ -2,6 +2,7 @@ articles:
   config: ./articles/config
   posts: ./articles/posts
 output_dir: ./site
+templates_dir: ./templates
 static_dir: ./static
 author:
   name: Johnny Law
