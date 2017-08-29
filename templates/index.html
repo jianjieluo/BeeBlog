@@ -62,6 +62,14 @@
                     <a href="https://github.com/longjj" class="button button-glow button-rounded button-raised button-primary"><img src="/static/img/github.png" alt="github icon"><span>Github</span></a>
                     <a href="https://www.zhihu.com/people/longj-10/activities" class="button button-glow button-rounded button-raised button-primary"><img src="/static/img/zhihu.png" alt="zhihu icon"><span>Zhihu</span></a>
                 </div>
+                <div id="notice" class="text-left">
+                    <h4>最近公告</h4>
+                    <ul>
+                        {% for note in site['notices'] %}
+                        <li class="small">{{ note }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
