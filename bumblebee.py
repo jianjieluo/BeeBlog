@@ -127,7 +127,7 @@ if __name__ == '__main__':
         author = {
             'name': config['author']['name'],
             'photo': config['author']['photo'],
-            'introduction': "Undergraduate of SYSU, China",
+            'introduction': "Undergraduate of SYSU, China. 软件工程，这是我的技术博客，写些有的没的。",
             'github': config['author']['github'],
             'zhihu': config['author']['zhihu']
         },
