@@ -15,7 +15,12 @@
 
     <div id="about">
       <h1>About The Author</h1>
-      <p>{{ author.introduction }}</p>
+      <div class="ps">
+        <h2>Personal Statement</h2>
+        <p>{{ author['introduction']['en'] }}</p>
+        <h2>个人简介</h2>
+        <p>{{ author['introduction']['zh'] }}</p>
+      </div>
     </div>
     <div id="contact">
       <h1>Other Communities</h1>

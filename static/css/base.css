@@ -72,6 +72,11 @@ img {
   vertical-align: bottom;
 }
 
+.ps > p {
+  padding: 10px;
+  text-align: left;
+}
+
 .body {
   width: 720px;
   margin-left: auto;

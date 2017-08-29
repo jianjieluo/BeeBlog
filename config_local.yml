@@ -1,14 +1,16 @@
-articles:
-  config: ./articles/config
-  posts: ./articles/posts
 output_dir: ./site
 templates_dir: ./templates
 static_dir: ./static
+articles:
+  config: ./articles/config
+  posts: ./articles/posts
 author:
   name: Johnny Law
   nickname: longj
   photo: /static/img/longj_photo.png
-  introduction: Study at Sun Yat-sen University, China. Major in Software Engineering. Lakers and Arsenal's fan.
+  introduction:
+    en: Major in Software Engineering at Sun Yat-sen University, China. Lakers and Arsenal's fan.
+    zh: 中山大学软件工程数字媒体方向大三本科生，在个人站点上记录自己的技术发展之路，可能偶尔会写一些随笔。
   email: luojj26@mail2.sysu.edu.cn
   github: https://github.com/longjj
   zhihu: https://www.zhihu.com/people/longj-10/activities
@@ -16,9 +18,9 @@ site:
   name: Johnny Law
   description: A blog about cpp, python, and all coding skills an undergraduate have learnt.
   shortdesc: An undergraduate records his coding skills
-  url: http://www.longjj.com
-  title: Johnny Law's Blog Home
-  keywords: 
+  url: https://www.longjj.com
+  title: Johnny Law's Blog Homes
+  keywords:
     - linux
     - unix
     - Linux Blog
@@ -35,5 +37,8 @@ site:
     - cocos game
     - web dev
     - machine learning
+    - blog
+    - 博客
+    - 操作系统
 special_columns:
   操作系统恐龙书阅读笔记: []

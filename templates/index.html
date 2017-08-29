@@ -14,10 +14,10 @@
     <div class="body container">
         <div class="row">
             <div id="left-view" class="container pull-left col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                <h1>The Latest 5 Posts</h1>
+                <h1>The Latest 8 Posts</h1>
 
                 <div class="article-list">
-                    {% set num = 5 %}
+                    {% set num = 8 %}
                     {% for post_id in post_ids|reverse %}
                         {% if num > 0 %}
                             <div class='text-capitalize'>
@@ -26,7 +26,7 @@
                                         {% if article_infos[post_id]['lang'] == "en"%}
                                         <span class="label label-info pull-left">en</span>
                                         {% elif article_infos[post_id]['lang'] == "zh-cmn-Hans"%}
-                                        <span class="label label-info pull-left">cn</span>
+                                        <span class="label label-info pull-left">zh</span>
                                         {% endif %}
                                         {{ article_infos[post_id]['title'] }}
                                     </h3>
@@ -54,8 +54,9 @@
                         <p>{{ author.name }}</p>
                     </a>
                 </div>
-                <div>
-                    <p id="PS" class="center-block">{{ author.introduction }}</p>
+                <div class="ps">
+                    <p>{{ author['introduction']['en'] }}</p>
+                    <p>{{ author['introduction']['zh'] }}</p>
                 </div>
                 <div class="community">
                     <a href="https://github.com/longjj" class="button button-glow button-rounded button-raised button-primary"><img src="/static/img/github.png" alt="github icon"><span>Github</span></a>
