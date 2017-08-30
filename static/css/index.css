@@ -4,6 +4,10 @@
     height: 160px;
 }
 
+#left-view {
+    padding-right: 40px;
+}
+
 #right-view {
     background-color: #EEE8D5;
     text-align: center;
