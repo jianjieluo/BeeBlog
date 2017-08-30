@@ -1,5 +1,5 @@
 #author-picture {
-    margin-top: 12px;    
+    margin-top: 12px;
     width: 160px;
     height: 160px;
 }
@@ -13,17 +13,23 @@
     text-align: center;
 }
 
-.community > a {
+.community>a {
     display: block;
 }
 
-.community > a > img {
+.community>a>img {
     margin-right: 8px;
     width: 20px;
     height: 20px;
 }
 
-[class*="col-"]{
+[class*="col-"] {
     margin-bottom: -99999px;
     padding-bottom: 99999px;
+}
+
+@media screen and (max-width: 720px) {
+    #left-view {
+        padding-right: 15px;
+    }
 }
