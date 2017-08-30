@@ -42,6 +42,14 @@ img {
   max-height: 100%;
 }
 
+#banner {
+  max-width: 100%;
+}
+
+.article-list > div {
+  padding-top: 12px;
+}
+
 .article-subtitle {
   width: 100%;
 }
@@ -68,6 +76,8 @@ img {
   overflow: hidden;
 }
 
+
+/* 移动端自适应 */
 @media screen and (max-width: 720px) {
   .body {
     width: 100%;
@@ -78,10 +88,6 @@ img {
   h2 {
     font-size: 24px;
   }
-}
-
-#banner {
-  max-width: 100%;
 }
 
 /* navbar custom */
