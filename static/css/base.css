@@ -8,8 +8,7 @@ body {
     font-size: 18px;
     color: #545454;
 
-    /* line-height: 1.428571429; */
-    line-height: 1.618;
+    line-height: 1.428571429;
 }
 
 h1 {
@@ -63,6 +62,10 @@ img {
 .article-title > span {
   font-size: 14px;
   vertical-align: bottom;
+}
+
+.article-content {
+  line-height: 1.618;
 }
 
 .ps > p {
