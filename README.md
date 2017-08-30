@@ -6,7 +6,7 @@
 
 Source files of http://www.longjj.com and https://www.longjj.com
 
-> Notice: 由于在中国原因，我的博客网站仍然在备案中，http协议暂时无法访问，估计2017.09左右才能正常访问。https协议的访问应该可以work。
+> Notice: 由于在中国原因，我的博客网站仍然在备案中，http协议暂时无法访问，估计2017.09左右才能正常访问。https协议的可以正常访问。
 
 ## Why BeeBlog
 
@@ -26,7 +26,7 @@ So here's Beeblog. I chose the name **bumblebee** when I was watching Transforme
 
 ## How it works
 
-`bumblebee.py` is a python3 static page generator. Use docker to build a image and run `bumblebee.py` in a corresponding container. The nginx proxy in the container listens requests.
+`bumblebee.py` is a python3 static page generator. Use docker to build an image and run `bumblebee.py` in a corresponding container. The nginx proxy in the container listens requests.
 
 > Notice: If you are not in China, maybe you don't need to change the software sources in `sources.list`.
 
@@ -43,9 +43,10 @@ Then visit http://localhost:80 .
 
 > Notice: If you want to use https, you need to have your own ssl key and put the \*.crt and \*.key files in `/ssl_key` dir. Then change the config in `longjj.com.conf` to use your own ssl key.
 
-> Notice: All article filenames should obtain the format "xxxx-xx-xx-xxx-xxx-xxx.md" cause my name parser depends on the file name format.
+> Notice: All article filenames in the `articles` dir should obtain the format "xxxx-xx-xx-xxx-xxx-xxx.md" cause my name parser depends on the file name format.
 
 You can also use `python3 bumblebee.py -c config_local.yml` command to test your static site generator.
+You can use `make update` to update your resources in the docker container faster.
 
 ## Refference
 
