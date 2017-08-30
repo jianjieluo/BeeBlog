@@ -8,7 +8,8 @@ body {
     font-size: 18px;
     color: #545454;
 
-    line-height: 1.428571429;
+    /* line-height: 1.428571429; */
+    line-height: 1.618;
 }
 
 h1 {
