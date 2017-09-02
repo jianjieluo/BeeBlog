@@ -15,6 +15,7 @@ from distutils import dir_util
 from jinja2 import FileSystemLoader, Environment
 
 import mistune
+from mistune_contrib.toc import TocMixin
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import html
@@ -27,7 +28,10 @@ class HighlightRenderer(mistune.Renderer):
                 mistune.escape(code)
         lexer = get_lexer_by_name(lang, stripall=True)
         formatter = html.HtmlFormatter()
-        return highlight(code, lexer, formatter)    
+        return highlight(code, lexer, formatter)
+
+class TocRenderer(TocMixin, mistune.Renderer):
+    pass
 
 def parse_file_name(name):
     name = name.replace(' ', '-')
@@ -110,7 +114,18 @@ if __name__ == '__main__':
         article_infos[post_id]['date'] = parse_file_name(file_name)
 
         with open(fqp, 'r', encoding='utf-8') as infile:
-            article_content[post_id] = markdown(infile.read())
+            text = infile.read()
+
+            toc = TocRenderer()
+            md = mistune.Markdown(renderer=toc)
+            toc.reset_toc()
+            md.parse(text)
+            # 只能拿到table却不能导航
+            # 如果不用md的话不会给标题标号id
+            table = toc.render_toc(level=3)
+
+            # article_content[post_id] = table + md(text)
+            article_content[post_id] = table + markdown(text)
 
     # STEP 3 - template
     env = Environment(loader=FileSystemLoader(config['templates_dir']))
