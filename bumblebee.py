@@ -30,7 +30,7 @@ class HighlightRenderer(mistune.Renderer):
         formatter = html.HtmlFormatter()
         return highlight(code, lexer, formatter)
 
-class TocRenderer(TocMixin, mistune.Renderer):
+class TocRenderer(TocMixin, HighlightRenderer):
     pass
 
 def parse_file_name(name):
@@ -114,18 +114,21 @@ if __name__ == '__main__':
         article_infos[post_id]['date'] = parse_file_name(file_name)
 
         with open(fqp, 'r', encoding='utf-8') as infile:
-            text = infile.read()
+            text = infile.read().replace('[toc]', '')
 
             toc = TocRenderer()
             md = mistune.Markdown(renderer=toc)
             toc.reset_toc()
-            md.parse(text)
-            # 只能拿到table却不能导航
-            # 如果不用md的话不会给标题标号id
+            content_md2html = md.parse(text)
             table = toc.render_toc(level=3)
 
-            # article_content[post_id] = table + md(text)
-            article_content[post_id] = table + markdown(text)
+            # reduce tag label written in marxico
+            index = content_md2html.find('<h1')
+
+            if index < 0:
+                article_content[post_id] = table + content_md2html
+            else:
+                article_content[post_id] = table + content_md2html[index:]
 
     # STEP 3 - template
     env = Environment(loader=FileSystemLoader(config['templates_dir']))
