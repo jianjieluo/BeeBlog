@@ -248,7 +248,7 @@ Breakpoint 1, main (argc=1, argv=0x7fffffffdd08) at test.cpp:5
 2. `return`：直接终止当前运行的函数，但没有提供返回值，可以在`return`的命令后面加上值var,强行指定返回var这个值。
 3. `finish`：直接模拟完成当前运行的函数，有返回值。
 
-### `set`命令
+#### `set`命令
 举例:
 `set tol=100`这样可以在程序运行时把tol设置为100
 
