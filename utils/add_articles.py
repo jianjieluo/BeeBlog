@@ -52,7 +52,7 @@ if __name__ == '__main__':
         tmp = tmp.replace('_', '-')
         postname = pdate_str + '-' + tmp
         post_path = os.path.join('../articles/posts/', postname)
-        shutil.copyfile(filepath, post_path)
+        shutil.move(filepath, post_path)
 
         # add articles config
         add_config(postname)
