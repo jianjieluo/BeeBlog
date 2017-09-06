@@ -50,5 +50,5 @@ special_columns:
     description: 大二下OS期末考试复习课本总结，记录不一定仔细齐全但重点知识点有所涵盖，有知识错漏可以邮件指正。
     post_ids: []
   LeetCode Learning:
-    description: 大三上算法设计与分析课程，老师要求每周在LeetCode上自选题目做并且写对应的博客，故特意开设本专栏。
+    description: 大三上算法设计与分析课程，老师要求每周在LeetCode上自选题目做并且写对应的博客，故特意开设本专栏。C++解决，以AC为最终目的。
     post_ids: []
