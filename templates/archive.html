@@ -11,6 +11,7 @@
 
     <div class="body container">
         <h1 class="text-capitalize">{{ class_type }} ({{ post_ids|length }})</h1>
+        <p class="text-muted small">{{ description }}</p>
         <div class="article-list">
             {% for post_id in post_ids|reverse %}
                 <div class='row text-capitalize'>

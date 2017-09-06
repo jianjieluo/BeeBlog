@@ -108,7 +108,7 @@ if __name__ == '__main__':
             if c not in config['special_columns']:
                 raise AttributeError('No such a special column! ', c)
             else:
-                config['special_columns'][c].append(post_id)
+                config['special_columns'][c]['post_ids'].append(post_id)
 
         article_infos[post_id]['path_layer'], article_infos[post_id]['title'], \
         article_infos[post_id]['date'] = parse_file_name(file_name)
@@ -216,12 +216,13 @@ if __name__ == '__main__':
     # generate columns pages
     template = env.get_template('archive.html')
     for c in config['special_columns']:
-        config['special_columns'][c].sort()
+        config['special_columns'][c]['post_ids'].sort()
         SITES['columns/'+c+'/index.html'] = template.render(
             sitetitle='Blog Special-Column: ' + c,
+            description=config['special_columns'][c]['description'],
             class_type=c,
             article_infos=article_infos,
-            post_ids=config['special_columns'][c],
+            post_ids=config['special_columns'][c]['post_ids'],
             site=config['site'],
             page_type='archive',
             tags=tags,
