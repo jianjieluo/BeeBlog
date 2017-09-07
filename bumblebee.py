@@ -142,13 +142,7 @@ if __name__ == '__main__':
         tags[tag].sort()
 
     SITES['index.html'] = template.render(
-        author = {
-            'name': config['author']['name'],
-            'photo': config['author']['photo'],
-            'introduction': config['author']['introduction'],
-            'github': config['author']['github'],
-            'zhihu': config['author']['zhihu']
-        },
+        author = config['author'],
         site=config['site'],
         tags=tags,
         article_infos=article_infos,
