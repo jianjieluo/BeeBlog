@@ -23,7 +23,7 @@ def add_config(postname):
         'tags': [],
         'file': postname,
         'keywords': [],
-        'lang': '',
+        'lang': 'zh-cmn-Hans',
         'column': -1,
     }
 
