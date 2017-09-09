@@ -1,8 +1,5 @@
 # Add Two Numbers
 
-@(Coding Language & Algorithm)[LeetCode]
-
-
 > Difficulty: Medium
 
 ## Description	
