@@ -10,7 +10,7 @@ Source files of http://www.longjj.com and https://www.longjj.com
 
 ## Change Log
 
-1. 2017-09-09 使用了第三方库[gitment](https://github.com/imsun/gitment)作为评论系统。该系统调用Github issue的API，将使得顾客可以使用github帐号来进行评论，并且把评论的内容发送到本repo的Issue上。评论功能的引入还在beta测试当中，目前暂时可以稳定运行。
+1. 2017-09-09 引入了第三方库[gitment](https://github.com/imsun/gitment)作为评论系统。该系统调用Github issue的API，将使得访客可以使用github帐号来进行评论，并且把评论的内容发送到本repo的Issue上。评论功能的引入还在beta测试当中，目前暂时可以稳定运行。
 
 ## Why BeeBlog
 
