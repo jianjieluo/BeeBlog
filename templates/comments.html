@@ -1,0 +1,16 @@
+<!-- gitment usage -->
+<div id="comments"></div>
+    <link rel="stylesheet" href="/static/css/gitment.min.css">">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script>
+    var gitment = new Gitment({
+        id: "/{{ article['path_layer'][-1] }}", 
+        owner: 'longjj',
+        repo: 'BeeBlog',
+        oauth: {
+            client_id: '10f9931357a7ef8450f7',
+            client_secret: '8957bf9ee0ec76929a31c8f40dcda6534a05627d',
+        },
+    })
+    gitment.render('comments')
+</script>

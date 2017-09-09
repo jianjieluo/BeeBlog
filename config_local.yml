@@ -53,3 +53,6 @@ special_columns:
   LeetCode Learning:
     description: 大三上算法设计与分析课程，老师要求每周在LeetCode上自选题目做并且写对应的博客，故特意开设本专栏。C++解决，以AC为最终目的。
     post_ids: []
+  How to Build Your Own Blog:
+    description: 如何自己搭建一个博客？本专栏记录一些构建这个博客所用到的一些思考与技术。
+    post_ids: [] 
