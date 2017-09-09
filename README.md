@@ -6,7 +6,11 @@
 
 Source files of http://www.longjj.com and https://www.longjj.com
 
-> Notice: 由于在中国原因，我的博客网站仍然在备案中，http协议暂时无法访问，估计2017.09左右才能正常访问。https协议的可以正常访问。
+> Notice: 由于在中国原因，我的博客网站仍然在备案中，http协议暂时无法访问，估计2017.09才能正常访问。https协议的可以正常访问。
+
+## Change Log
+
+1. 2017-09-09 使用了第三方库[gitment](https://github.com/imsun/gitment)作为评论系统。该系统调用Github issue的API，将使得顾客可以使用github帐号来进行评论，并且把评论的内容发送到本repo的Issue上。评论功能的引入还在beta测试当中，目前暂时可以稳定运行。
 
 ## Why BeeBlog
 
@@ -23,6 +27,8 @@ def shouldWriteOwnStaticGenerator(person):
 ```
 
 So here's Beeblog. I chose the name **bumblebee** when I was watching Transformers' films :). There is no other specific meaning.
+
+[Chinese Blog for More Detail: Why I implement BeeBlog](https://www.longjj.com/2017/09/09/%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AABlog%E5%90%A7/)
 
 ## How it works
 
