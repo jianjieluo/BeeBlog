@@ -80,6 +80,13 @@ img {
   overflow: hidden;
 }
 
+/* 评论区样式设置 */
+#comments {
+  margin-top: 80px;
+  border-top-style: solid;
+  border-top-color: #545454;
+  border-width: thin;
+}
 
 /* 移动端自适应 */
 @media screen and (max-width: 720px) {
