@@ -1,0 +1,14 @@
+.article-content {
+    line-height: 1.618;
+  }
+
+/* 移动端自适应 */
+@media (max-width: 767px) {
+    #table-of-content {
+        display: none !important;
+    }
+    body {
+        padding: 24px;
+    }
+}
+
