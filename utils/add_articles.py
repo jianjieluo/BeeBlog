@@ -25,6 +25,7 @@ def add_config(postname):
         'keywords': [],
         'lang': 'zh-cmn-Hans',
         'column': -1,
+        # 'column': 'LeetCode Learning',
     }
 
     target = os.path.join(target_path, os.path.splitext(postname)[0]+'.yml')
