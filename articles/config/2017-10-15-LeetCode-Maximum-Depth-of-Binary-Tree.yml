@@ -1,0 +1,13 @@
+column: LeetCode Learning
+description: 'leetcode 原题104解答'
+file: 2017-10-15-LeetCode-Maximum-Depth-of-Binary-Tree.md
+keywords:
+  - dfs
+  - binary tree
+  - maximum depth
+lang: zh-cmn-Hans
+post_id: 25
+tags:
+  - Leetcode
+  - Algorithm
+  - cpp
