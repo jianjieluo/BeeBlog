@@ -1,0 +1,15 @@
+column: LeetCode Learning
+description: 'leetcode 原题98解答'
+file: 2017-10-19-LeetCode-Validate-Binary-Search-Tree.md
+keywords:
+  - leetcode
+  - binary tree
+  - inorder
+  - dfs
+  - BST
+lang: zh-cmn-Hans
+post_id: 27
+tags:
+  - Leetcode
+  - Algorithm
+  - cpp
