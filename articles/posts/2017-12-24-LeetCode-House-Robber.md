@@ -58,3 +58,42 @@ public:
 };
 ```
 
+### Second AC Version
+这里另外有一个更容易理解的算法，不过多了**一倍的空间开销**，`dp[0][i]`表示i房子不抢拿到的最大利润，`dp[1][i]`表示i房子抢拿到的最大利润。
+
+动态转移方程如下：
+
+```cpp
+dp[0][i] = max(dp[0][i-1], dp[1][i-1]);
+dp[1][i] = dp[0][i-1] + nums[i];
+```
+最后只需要取`dp[0][n-1]`和`dp[1][n-1]`的最大值即可。
+代码如下：
+```cpp
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        vector<int> dp[2];
+        
+        int n = nums.size();
+        if (n == 0) return 0;
+        
+        dp[0].resize(n);
+        dp[1].resize(n);
+        
+        // first not robbed
+        dp[0][0] = 0;
+        dp[1][0] = nums[0];
+        for (int i = 0; i < n; ++i) {
+            dp[0][i] = max(dp[0][i-1], dp[1][i-1]);
+            dp[1][i] = dp[0][i-1] + nums[i];
+        }
+        
+        return max(dp[0][n-1], dp[1][n-1]);
+    }
+    
+    int max(const int a, const int b) {
+        return (a < b) ? b : a;
+    }
+};
+```
