@@ -1,6 +1,6 @@
 @(系统分析与设计)[homework]
 
-# 系统分析与设计 Homework 1
+# Systems Analysis and Design hw1
 
 ## 一、 简单题
 
