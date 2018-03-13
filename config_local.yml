@@ -42,17 +42,20 @@ site:
     - 博客
     - 操作系统
   notices: 
-    - 新开专栏"LeetCode Learning"。
+    - 新开临时专栏“系统分析与设计课程作业提交”，用于课程作业提交，持续至2018年底。
+    - 引入第三方评论系统gitment，目前处于Beta测试阶段，可正常使用。
     - 鄙人在有空的时候将逐步把旧的博客迁移至这个网站里。
-    - 最近在考虑是否要开一个“如何实现BeeBlog（这个站点）”的专栏。
     - 开学上课时间文章更新频率不一定保证。
 special_columns:
   操作系统恐龙书阅读笔记:
     description: 大二下OS期末考试复习课本总结，记录不一定仔细齐全但重点知识点有所涵盖，有知识错漏可以邮件指正。
     post_ids: []
   LeetCode Learning:
-    description: 大三上算法设计与分析课程，老师要求每周在LeetCode上自选题目做并且写对应的博客，故特意开设本专栏。C++解决，以AC为最终目的。
+    description: 记录自己的leetcode题目解法和学习思路，C++解决，以AC为最终目的。
     post_ids: []
   How to Build Your Own Blog:
     description: 如何自己搭建一个博客？本专栏记录一些构建这个博客所用到的一些思考与技术。
     post_ids: [] 
+  系统分析与设计课程作业提交:
+    description: 大三下系统分析与设计课程，老师要求通过网上博客来提交作业，故特意开设本专栏。
+    post_ids: []

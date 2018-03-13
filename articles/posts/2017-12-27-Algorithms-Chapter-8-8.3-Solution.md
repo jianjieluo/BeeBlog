@@ -2,8 +2,6 @@
 
 # *Algorithms* Chapter 8 8.3 Solution
 
-> 由于博主课程需求原因，暂时将这篇博客（作业）归到LeetCode专题下方便老师查看。
-
 ## Description
 
 `STINGY SAT` is th following problem: given a set of clauses (each a disjunction of literals) and an integer `k`,find a satisfying assignment in which at most `k` variables are `true`, if such an assignment exists. Prove that `STINGY SAT` is **NP-complete**.
