@@ -8,7 +8,8 @@ Source files of http://www.longjj.com and https://www.longjj.com
 
 ## Change Log
 
-1. 2017-09-09 引入了第三方库[gitment](https://github.com/imsun/gitment)作为评论系统。该系统调用Github issue的API，将使得访客可以使用github帐号来进行评论，并且把评论的内容发送到本repo的Issue上。评论功能的引入还在beta测试当中，目前暂时可以稳定运行。
+- 2018-04-03 在 gitment 的使用过程中，发现了容易[因为题目太长而导致评论不能初始化 `Error: Validation Failed`](https://github.com/imsun/gitment/issues/116)，修改 `id` 项完成时间戳和题目名同时作为 gitment id的兼容。
+- 2017-09-09 引入了第三方库[gitment](https://github.com/imsun/gitment)作为评论系统。该系统调用Github issue的API，将使得访客可以使用github帐号来进行评论，并且把评论的内容发送到本repo的Issue上。评论功能的引入还在beta测试当中，目前暂时可以稳定运行。
 
 ## Why BeeBlog
 
