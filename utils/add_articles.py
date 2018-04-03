@@ -8,6 +8,7 @@ import os
 import yaml
 import datetime
 import shutil
+import datetime
 
 def modification_date(filename):
     t = os.path.getmtime(filename)
@@ -17,6 +18,7 @@ def add_config(postname):
     target_path = '../articles/config'
     curr_posts_num = len(os.listdir(target_path))
 
+    i = datetime.datetime.now()
     template = {
         'description': '',
         'post_id': curr_posts_num + 1,
@@ -25,6 +27,7 @@ def add_config(postname):
         'keywords': [],
         'lang': 'zh-cmn-Hans',
         'column': -1,
+        'release_time': i.isoformat()
         # 'column': '系统分析与设计课程作业提交',
     }
 
