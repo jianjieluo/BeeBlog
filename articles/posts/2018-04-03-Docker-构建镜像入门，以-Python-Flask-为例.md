@@ -6,7 +6,7 @@
 
 > 实验环境： Ubuntu 16.04 LTS
 
-> 本文介绍如何自行构建一个封装了 python flask 的 docker 镜像，并且运行它的一个容器。其中一些细节的东西不深入讨论，否则篇幅过长，降低阅读兴趣。
+> 本文介绍如何自行构建一个封装了 python flask 的 docker 镜像，并且运行它的一个容器。
 
 ## 什么是Docker
 
@@ -61,7 +61,7 @@ Cannot connect to the Docker daemon. Is the docker daemon running on this host?
 
 在绝大多数的虚拟机环境中，假如你想要创建一个机器的镜像，你需要首先创建一个虚拟机，然后安装好操作系统，然后安装好应用程序，最后将其转化成一个模板或者镜像。然而，对于Docker来说，这些步骤都可以通过 Dockerfile 进行自动化。一个 Dockerfile 是一个可以向 Docker 提供构建指令的方式。我们将要创建一个可以用来部署一个最简单的 Flask 应用镜像的 Dockerfile 。
 
-### Step 1. 理解应用
+### Step 1 理解应用
 
 项目内容和结构如下：
 ```bash
