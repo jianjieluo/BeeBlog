@@ -4,7 +4,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-id: (window.location.pathname.length < 50) ? window.location.pathname : {{ article.release_time }},
+id: (window.location.pathname.length < 50) ? window.location.pathname : "{{ article.release_time }}",
 owner: 'longjj',
 repo: 'BeeBlog',
 oauth: {
