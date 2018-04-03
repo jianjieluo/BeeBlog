@@ -1,0 +1,16 @@
+column: -1
+description: 'Docker 构建一个简单的返回 Hello World 的 Python Flask 镜像'
+file: "2018-04-03-Docker-\u6784\u5EFA\u955C\u50CF\u5165\u95E8\uFF0C\u4EE5-Python-Flask-\u4E3A\
+  \u4F8B.md"
+keywords:
+  - docker
+  - DevOps
+  - Dockerfile
+  - Python
+  - Flask
+lang: zh-cmn-Hans
+post_id: 49
+release_time: '2018-04-03T19:35:19.817733'
+tags:
+  - DevOps
+  - Docker
