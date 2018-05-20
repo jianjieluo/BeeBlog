@@ -2,7 +2,10 @@
 
 [toc]
 
+
 # Systems Analysis and Design hw3
+
+> 由于涉及大量图片插入以及内容完整性问题，我将不再在本博客系统上提交 `系统分析与设计` 这门课的课程作业，而是转移到了 CSDN 博客网上作为临时的提交。本篇博文已经过期，更新的博文为 [这里](https://blog.csdn.net/luojj26/article/details/80043420)。接下来的作业都将在 CSDN 上发布。
 
 ## 1. 用例建模
 
