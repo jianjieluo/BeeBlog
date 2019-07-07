@@ -1,3 +1,5 @@
+# Note: This repository is deprecated, and the code is kept for reference about how to write a Static Website Generator.
+
 # BeeBlog
 
 ![beeicons](./static/img/blogbanner.png)
